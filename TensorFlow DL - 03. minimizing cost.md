@@ -3,7 +3,7 @@
 
 ## 03. Minimizing Cost
 
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://www.youtube.com/watch?v=Y0EF9VqRuEA&feature=youtu.be
 
 
@@ -42,8 +42,8 @@ sess.run(tf.global_variables_initializer())
 
 # 3) Update variables in the graph (and return values)
 
-plot_x = []  # xÃà weight W (-3 ~ 5)
-plot_y = []  # yÃà cost
+plot_x = []  # xì¶• weight W (-3 ~ 5)
+plot_y = []  # yì¶• cost
 
 for i in range(-30, 50):
 	feed_W = i * 0.1
@@ -69,17 +69,17 @@ plt.show()
 - cost function (error function)
   - E[W] = tf.reduce_mean(tf.square(h - Y))
 
-- gradient: ¥ÄE[W] 
-  - °æ»ç, cost functionÀÇ ±â¿ï±â°ª
-  - ¥Ä (´ë¹®ÀÚ µ¨Å¸) ¹ÌºĞ±âÈ£
-  - ¥ç (¼Ò¹®ÀÚ ÀÌÅ¸) ÇĞ½À·ü, ÃæºĞÈ÷ ÀÛÀ¸¸é min error °è»ê Ç×»ó converge
-  - ¥ÄW = - ¥ç¥ÄE[W] = ¥ç  ¥Ò (h - Y)X = ¥ç  ¥Ò (X * W - Y)X
+- gradient: Î”E[W] 
+  - ê²½ì‚¬, cost functionì˜ ê¸°ìš¸ê¸°ê°’
+  - Î” (ëŒ€ë¬¸ì ë¸íƒ€) ë¯¸ë¶„ê¸°í˜¸
+  - Î· (ì†Œë¬¸ì ì´íƒ€) í•™ìŠµë¥ , ì¶©ë¶„íˆ ì‘ìœ¼ë©´ min error ê³„ì‚° í•­ìƒ converge
+  - Î”W = - Î·Î”E[W] = Î·  Î£ (h - Y)X = Î·  Î£ (X * W - Y)X
 
 - gradient descent
-  - W = W + ¥ÄW = W - ¥ç¥ÄE[W]
-  - ¥ç¥ÄE[W]: - ±âÈ£ ¶§¹®¿¡ ±â¿ï±â À½¹æÇâÀÌ¸é W ´Ã·ÁÁÜ, ¾ç¹æÇâÀÌ¸é ÁÙ¿©ÁÜ
+  - W = W + Î”W = W - Î·Î”E[W]
+  - Î·Î”E[W]: - ê¸°í˜¸ ë•Œë¬¸ì— ê¸°ìš¸ê¸° ìŒë°©í–¥ì´ë©´ W ëŠ˜ë ¤ì¤Œ, ì–‘ë°©í–¥ì´ë©´ ì¤„ì—¬ì¤Œ
 
-<br />
+<br />  
 ```
 import tensorflow as tf
 
@@ -100,7 +100,7 @@ h = X * W
 # cost(loss) function
 cost = tf.reduce_mean(tf.square(h - Y))
 
-# Min cost: Gradient Descent ÀÌ°Å ¾È¾²°í Á÷Á¢ °è»êÇØ¼­ ½áº¼ °Í
+# Min cost: Gradient Descent ì´ê±° ì•ˆì“°ê³  ì§ì ‘ ê³„ì‚°í•´ì„œ ì¨ë³¼ ê²ƒ
 # optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.01)
 # train = optimizer.minimize(cost)
 
@@ -153,7 +153,7 @@ h = X * W
 # cost(loss) function
 cost = tf.reduce_mean(tf.square(h - Y))
 
-# Min cost: tf Á¦°ø operation »ç¿ë
+# Min cost: tf ì œê³µ operation ì‚¬ìš©
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1)
 train = optimizer.minimize(cost)
 
@@ -200,11 +200,11 @@ h = X * W
 # cost(loss) function
 cost = tf.reduce_mean(tf.square(h - Y))
 
-# Min cost: ³»°¡ gradient Á» ¼öÁ¤ÇØ¼­ »ç¿ë°¡´É
+# Min cost: ë‚´ê°€ gradient ì¢€ ìˆ˜ì •í•´ì„œ ì‚¬ìš©ê°€ëŠ¥
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.01)
-# train = optimizer.minimize(cost) ¹Ù·Î minimize ¾ÈÇÏ°í
-gvs = optimizer.compute_gradients(cost, [W])      # gradients °ª ¹Ş¾Æ¼­ ÇÊ¿äÇÑ ºÎºĞ ¼öÁ¤
-apply_gradients =  optimizer.apply_gradients(gvs) # gradients ¼öÁ¤ÇÑ °ªÀ¸·Î Àû¿ë
+# train = optimizer.minimize(cost) ë°”ë¡œ minimize ì•ˆí•˜ê³ 
+gvs = optimizer.compute_gradients(cost, [W])      # gradients ê°’ ë°›ì•„ì„œ í•„ìš”í•œ ë¶€ë¶„ ìˆ˜ì •
+apply_gradients =  optimizer.apply_gradients(gvs) # gradients ìˆ˜ì •í•œ ê°’ìœ¼ë¡œ ì ìš©
 
 
 # 2) Feed data and run graph (operation) using sess.run(op, feed_dict={x: x_data})
@@ -224,7 +224,7 @@ for step in range(30):
 	# print(step, sess.run(W))
 	# sess.run(train)
 	print(step, sess.run([manual_gradient, W, gvs]))
-	# ¾Æ¹« ¼öÁ¤¾ÈÇÏ¸é manual gradient¿Í tf Á¦°øop ·Î °è»êÇÑ gradient¿Í µ¿ÀÏÇÔ 
+	# ì•„ë¬´ ìˆ˜ì •ì•ˆí•˜ë©´ manual gradientì™€ tf ì œê³µop ë¡œ ê³„ì‚°í•œ gradientì™€ ë™ì¼í•¨ 
 	sess.run(apply_gradients)
 ```
 
