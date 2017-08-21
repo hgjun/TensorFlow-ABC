@@ -225,8 +225,7 @@ with tf.Session() as sess:                       # launch graph in a session
 	print("\nHypothesis: ", hy,"\Correct: ", c,"\Accuracy: ", a)
 ```
 
-<br />
-TensorFlow 컨테이너 (tftest) 계정의 터미널에서
+TensorFlow 컨테이너 (tftest) 계정의 터미널에서  
 ```
 tensorboard --logdir=/home/testu/work/logs
 ```
