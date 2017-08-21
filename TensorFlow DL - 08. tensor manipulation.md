@@ -4,12 +4,12 @@
 ## Lab08. Tensor Manipulation
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://www.youtube.com/watch?v=ZYX0FaqUeN4&feature=youtu.be  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-08-tensor_manipulation.ipynb  
-
-<br />
-¿¬½À¿ë ½ÃÀÛ ÄÚµå
+  
+<br /><br />
+ì—°ìŠµìš© ì‹œì‘ ì½”ë“œ
 
 ```
 import tensorflow as tf
@@ -33,7 +33,7 @@ pp.pprint(t)
 print(t)
 
 print("Rank: " , t.ndim)
-print("Shape: ", t.shape) # 7 °³ elements
+print("Shape: ", t.shape) # 7 ê°œ elements
 
 # Slicing
 print(t[0], t[1], t[-1])  # [0], [1], [7 - 1]
@@ -76,10 +76,10 @@ print("Rank: {}, Shape: {}" .format(t.ndim, t.shape))
 ### Shape, Rank, Axis
 
 ```
-# Rank = square bracket °³¼ö
-# Shape = ¸Ç ¸¶Áö¸· Â÷¿øÀÇ element °³¼öºÎÅÍ ¼¼¾î³ª°¡
+# Rank = square bracket ê°œìˆ˜
+# Shape = ë§¨ ë§ˆì§€ë§‰ ì°¨ì›ì˜ element ê°œìˆ˜ë¶€í„° ì„¸ì–´ë‚˜ê°€
  
-t = tf.constant([1,2,3,4])      # 1Â÷¿ø, Rank 1
+t = tf.constant([1,2,3,4])      # 1ì°¨ì›, Rank 1
 tf.shape(t).eval()
 # array([4], dtype=int32)
 
@@ -93,14 +93,14 @@ t = tf.constant([[[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]],[[13, 14, 15, 16
 tf.shape(t).eval()
 # array([1, 2, 3, 4], dtype=int32)
 
-# '[' 4°³ -> Rank 4
-# shape ³¡¿¡°ÍºÎÅÍ ¼¼¸é 4, 3, 2, 1 -> Shape [1, 2, 3, 4]
-# Axis Ãà
+# '[' 4ê°œ -> Rank 4
+# shape ëì—ê²ƒë¶€í„° ì„¸ë©´ 4, 3, 2, 1 -> Shape [1, 2, 3, 4]
+# Axis ì¶•
 
 [ Axis 0
 	[  Axis 1
 		[  Axis 2
-			[1, 2, 3, 4],  Axis 3 ÀÌ¸é¼­ Axis -1 (Á¦ÀÏ ¾ÈÂÊ, ¸Ç ¸¶Áö¸·¿¡ ÀÖ´Â Ãà)
+			[1, 2, 3, 4],  Axis 3 ì´ë©´ì„œ Axis -1 (ì œì¼ ì•ˆìª½, ë§¨ ë§ˆì§€ë§‰ì— ìˆëŠ” ì¶•)
 			[5, 6, 7, 8],
 			[9, 10, 11, 12]
 		],
@@ -127,7 +127,7 @@ tf.matmul(matrix1, matrix2).eval()            # [2 x 2] * [2 x 1] = [2 x 1]
 # array([[  5.],
 #       [ 11.]], dtype=float32)
 
-(matrix1 * matrix2).eval()   # Çà·Ä °ö ¾Æ´Ô!
+(matrix1 * matrix2).eval()   # í–‰ë ¬ ê³± ì•„ë‹˜!
 # array([[ 1.,  2.],
 #       [ 6.,  8.]], dtype=float32)
 
@@ -144,7 +144,7 @@ np.matmul(a, b)
 # array([[ 12.]])
 
 
-(matrix1*matrix2).eval()  # Çà·Ä °ö ¾Æ´Ô!
+(matrix1*matrix2).eval()  # í–‰ë ¬ ê³± ì•„ë‹˜!
 # array([[ 6.,  6.],
 #       [ 6.,  6.]], dtype=float32)
 ```
@@ -154,10 +154,10 @@ np.matmul(a, b)
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Broadcasting (ÁÖÀÇ!)
+### Broadcasting (ì£¼ì˜!)
 
 Operations between the same shapes  
-À¯¿ëÇÒ ¼öµµ ÀÖÀ¸³ª, ¸Å¿ì ÁÖÀÇÇØ¼­ »ç¿ëÇØ¾ß!
+ìœ ìš©í•  ìˆ˜ë„ ìˆìœ¼ë‚˜, ë§¤ìš° ì£¼ì˜í•´ì„œ ì‚¬ìš©í•´ì•¼!
 
 ```
 matrix1 = tf.constant([[3., 3.]])
@@ -182,13 +182,13 @@ matrix2 = tf.constant([[2., 2.]])
 # array([[ 5.,  5.]], dtype=float32)
 
 
-Shape ´Ş¶óµµ ¿¬»ê°¡´É
+Shape ë‹¬ë¼ë„ ì—°ì‚°ê°€ëŠ¥
 matrix1 = tf.constant([[1., 2.]])
-matrix2 = tf.constant(3.)  # -> [[3, 3]] À¸·Î ¸ÂÃçÁà¼­ °è»ê
+matrix2 = tf.constant(3.)  # -> [[3, 3]] ìœ¼ë¡œ ë§ì¶°ì¤˜ì„œ ê³„ì‚°
 (matrix1 + matrix2).eval()
 # array([[ 4.,  5.], dtype=float32)
 
-Rank ´Ş¶óµµ ¿¬»ê°¡´É
+Rank ë‹¬ë¼ë„ ì—°ì‚°ê°€ëŠ¥
 matrix1 = tf.constant([[1., 2.]])
 matrix2 = tf.constant([3., 4.])
 (matrix1 + matrix2).eval()
@@ -204,7 +204,7 @@ matrix2 = tf.constant([[3.], [4.]])
 
 <br />
 
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html 
 
 
@@ -234,7 +234,7 @@ tf.random_uniform([2, 3]).eval()
 ### Reduce Mean/Sum
 
 ```
-tf.reduce_mean([1, 2], axis=0).eval()  # data typeÀÌ int ¶ó Æò±Õ 1 ³ª¿Â°Í!
+tf.reduce_mean([1, 2], axis=0).eval()  # data typeì´ int ë¼ í‰ê·  1 ë‚˜ì˜¨ê²ƒ!
 # 1
 
 tf.reduce_mean([1., 2.], axis=0).eval()
@@ -242,21 +242,21 @@ tf.reduce_mean([1., 2.], axis=0).eval()
 
 
 x = [[1., 2.], [3., 4.]]  # Rank 2, Shape (2, 2)
-# [  ¡éAxis 0
-#     [1., 2.], ¡æ Axis 1 ÀÌ¸é¼­ Axis -1
+# [  â†“Axis 0
+#     [1., 2.], â†’ Axis 1 ì´ë©´ì„œ Axis -1
 #     [3., 4.]
 # ]
 
 tf.reduce_mean(x).eval()
 # 2.5
 
-tf.reduce_mean(x, axis=0).eval()  # Axis 0 ±âÁØ Æò±Õ (1, 3) (2, 4)
+tf.reduce_mean(x, axis=0).eval()  # Axis 0 ê¸°ì¤€ í‰ê·  (1, 3) (2, 4)
 # array([ 2.,  3.], dtype=float32)
 
-tf.reduce_mean(x, axis=1).eval()  # Axis 1 ±âÁØ Æò±Õ (1, 2) (3, 4)
+tf.reduce_mean(x, axis=1).eval()  # Axis 1 ê¸°ì¤€ í‰ê·  (1, 2) (3, 4)
 # array([ 1.5,  3.5], dtype=float32)
 
-tf.reduce_mean(x, axis=-1).eval() # ÀÌ Çà·ÄÀº Axis 1 = Axis -1 
+tf.reduce_mean(x, axis=-1).eval() # ì´ í–‰ë ¬ì€ Axis 1 = Axis -1 
 # array([ 1.5,  3.5], dtype=float32)
 
 
@@ -264,14 +264,14 @@ tf.reduce_mean(x, axis=-1).eval() # ÀÌ Çà·ÄÀº Axis 1 = Axis -1
 tf.reduce_sum(x).eval()
 # 10.0
 
-tf.reduce_sum(x, axis=0).eval()   # Axis 0 ±âÁØ ÇÕ (1, 3) (2, 4)
+tf.reduce_sum(x, axis=0).eval()   # Axis 0 ê¸°ì¤€ í•© (1, 3) (2, 4)
 # array([ 4.,  6.], dtype=float32)
 
-tf.reduce_sum(x, axis=-1).eval()  # Axis 1 ±âÁØ ÇÕ (1, 2) (3, 4)
+tf.reduce_sum(x, axis=-1).eval()  # Axis 1 ê¸°ì¤€ í•© (1, 2) (3, 4)
 # array([ 3.,  7.], dtype=float32)
 
-# ¸¹ÀÌ ¾²ÀÌ´Â Çü½Ä
-# Á¦ÀÏ ¾ÈÂÊ¿¡ ÀÖ´Â ÃàÀÇ ¿ä¼Òµé ÇÕÃÄ¼­ Æò±Õ³»±â
+# ë§ì´ ì“°ì´ëŠ” í˜•ì‹
+# ì œì¼ ì•ˆìª½ì— ìˆëŠ” ì¶•ì˜ ìš”ì†Œë“¤ í•©ì³ì„œ í‰ê· ë‚´ê¸°
 tf.reduce_mean(tf.reduce_sum(x, axis=-1)).eval()
 # 5.0
 ```
@@ -285,18 +285,18 @@ tf.reduce_mean(tf.reduce_sum(x, axis=-1)).eval()
 
 ```
 x = [[0, 1, 2], [2, 1, 0]]
-# [   ¡éAxis 0
-#     [0, 1, 2], ¡æ Axis 1 ÀÌ¸é¼­ Axis -1
+# [   â†“Axis 0
+#     [0, 1, 2], â†’ Axis 1 ì´ë©´ì„œ Axis -1
 #     [2, 1, 0]
 # ]
 
-tf.argmax(x, axis=0).eval()   # Axis 0 ±âÁØ argmax (0, 2) (1, 1)  (2, 0)
-# array([1, 0, 0])            # index °ªÀ» °Ç³×ÁÜ
+tf.argmax(x, axis=0).eval()   # Axis 0 ê¸°ì¤€ argmax (0, 2) (1, 1)  (2, 0)
+# array([1, 0, 0])            # index ê°’ì„ ê±´ë„¤ì¤Œ
 
-tf.argmax(x, axis=1).eval()   # Axis 1 ±âÁØ argmax (0, 1, 2) (2, 1, 0)
+tf.argmax(x, axis=1).eval()   # Axis 1 ê¸°ì¤€ argmax (0, 1, 2) (2, 1, 0)
 # array([2, 0])
 
-tf.argmax(x, axis=-1).eval()  # ÀÌ Çà·ÄÀº Axis 1 = Axis -1 
+tf.argmax(x, axis=-1).eval()  # ì´ í–‰ë ¬ì€ Axis 1 = Axis -1 
 # array([2, 0])
 ```
 
@@ -314,21 +314,21 @@ t = np.array([[[0, 1, 2],
               [[6, 7, 8], 
                [9, 10, 11]]])
 
-# "[" 3 °³´Ï Rank 3
+# "[" 3 ê°œë‹ˆ Rank 3
 
 t.shape
-# (2, 2, 3)  ¸Ç µÚ "[ ]" ºÎÅÍ ¿ä¼Ò °³¼ö Ä«¿îÆ®ÇÏ¸é ÆíÇØ 3, 2, 2
+# (2, 2, 3)  ë§¨ ë’¤ "[ ]" ë¶€í„° ìš”ì†Œ ê°œìˆ˜ ì¹´ìš´íŠ¸í•˜ë©´ í¸í•´ 3, 2, 2
 
-# Rank 2 ·Î reshape
-# Á¦¾Ë ¾È¿¡ °ÍÀº 3À¸·Î ÇÏ°í ³ª¸ÓÁö´Â ¾Ë¾Æ¼­ Ã³¸®(-1)ÇØ¶ó
+# Rank 2 ë¡œ reshape
+# ì œì•Œ ì•ˆì— ê²ƒì€ 3ìœ¼ë¡œ í•˜ê³  ë‚˜ë¨¸ì§€ëŠ” ì•Œì•„ì„œ ì²˜ë¦¬(-1)í•´ë¼
 tf.reshape(t, shape=[-1, 3]).eval()
 # array([[ 0,  1,  2],
 #        [ 3,  4,  5],
 #        [ 6,  7,  8],
 #        [ 9, 10, 11]])
 
-# Rank 3 À¸·Î reshape
-# ¾ÈÂÊÀº 3 ±×´ë·Î, ±× ´ÙÀ½Àº 1, ³ª¸ÓÁö ¾Ë¾Æ¼­
+# Rank 3 ìœ¼ë¡œ reshape
+# ì•ˆìª½ì€ 3 ê·¸ëŒ€ë¡œ, ê·¸ ë‹¤ìŒì€ 1, ë‚˜ë¨¸ì§€ ì•Œì•„ì„œ
 tf.reshape(t, shape=[-1, 1, 3]).eval()
 # array([[[ 0,  1,  2]],
 #        [[ 3,  4,  5]],
@@ -343,14 +343,14 @@ tf.reshape(t, shape=[-1, 1, 3]).eval()
 
 ### Reshape: squeeze, expand
 
-µ¥ÀÌÅÍ ÆìÁà
+ë°ì´í„° í´ì¤˜
 ```
 tf.squeeze([[0], [1], [2]]).eval()
 # array([0, 1, 2], dtype=int32)
 ```
 
-Â÷¿ø Ãß°¡ÇÏ°í ½ÍÀ» ¶§  
-tensorÀÇ shape º¯°æ½ÃÅ°±â À§ÇÑ ¹æ¹ı
+ì°¨ì› ì¶”ê°€í•˜ê³  ì‹¶ì„ ë•Œ  
+tensorì˜ shape ë³€ê²½ì‹œí‚¤ê¸° ìœ„í•œ ë°©ë²•
 ```
 tf.expand_dims([0, 1, 2], 1).eval()
 # array([[0],
@@ -367,7 +367,7 @@ tf.expand_dims([0, 1, 2], 1).eval()
 
 ```
 tf.one_hot([[0], [1], [2], [0]], depth=3).eval()
-# one_hot()Àº rank ÇÏ³ª ´Ã·Á  ¿ø·¡ rank 2 ¿´À¸´Ï rank 3 µÊ
+# one_hot()ì€ rank í•˜ë‚˜ ëŠ˜ë ¤  ì›ë˜ rank 2 ì˜€ìœ¼ë‹ˆ rank 3 ë¨
 # array([[[ 1.,  0.,  0.]],
 #        [[ 0.,  1.,  0.]],
 #        [[ 0.,  0.,  1.]],
@@ -375,7 +375,7 @@ tf.one_hot([[0], [1], [2], [0]], depth=3).eval()
 
 t = tf.one_hot([[0], [1], [2], [0]], depth=3)
 tf.reshape(t, shape=[-1, 3]).eval()
-# reshapeÀ¸·Î ÇÏ³ª ´ÃÀº rank ÁÙÀÏ ¼ö ÀÖ¾î
+# reshapeìœ¼ë¡œ í•˜ë‚˜ ëŠ˜ì€ rank ì¤„ì¼ ìˆ˜ ìˆì–´
 # array([[ 1.,  0.,  0.],
 #        [ 0.,  1.,  0.],
 #        [ 0.,  0.,  1.],
@@ -389,14 +389,14 @@ tf.reshape(t, shape=[-1, 3]).eval()
 
 ### Casting
 
-µ¥ÀÌÅÍ Å¸ÀÔ º¯°æ
+ë°ì´í„° íƒ€ì… ë³€ê²½
 
 ```
 tf.cast([1.8, 2.2, 3.3, 4.9], tf.int32).eval()
 # array([1, 2, 3, 4], dtype=int32)
 
 tf.cast([True, False, 1 == 1, 0 == 1], tf.int32).eval()
-# sum ÇØ¼­ true °³¼ö ±¸ÇÒ ¶§ À¯¿ë
+# sum í•´ì„œ true ê°œìˆ˜ êµ¬í•  ë•Œ ìœ ìš©
 # array([1, 0, 1, 0], dtype=int32)
 ```
 
@@ -437,12 +437,12 @@ tf.stack([x, y, z], axis=-1).eval()
 x = [[0, 1, 2],
      [2, 1, 0]]
 
-x¿Í °°Àº ±¸Á¶·Î ¸¸µé°í 1 Ã¤¿öÁà
+xì™€ ê°™ì€ êµ¬ì¡°ë¡œ ë§Œë“¤ê³  1 ì±„ì›Œì¤˜
 tf.ones_like(x).eval()
 # array([[1, 1, 1],
 #        [1, 1, 1]], dtype=int32)
 
-x¿Í °°Àº ±¸Á¶·Î ¸¸µé°í 0 Ã¤¿öÁà
+xì™€ ê°™ì€ êµ¬ì¡°ë¡œ ë§Œë“¤ê³  0 ì±„ì›Œì¤˜
 tf.zeros_like(x).eval()
 # array([[0, 0, 0],
 #        [0, 0, 0]], dtype=int32)
@@ -470,7 +470,7 @@ for x, y, z in zip([1, 2, 3], [4, 5, 6], [7, 8, 9]):
 # (3, 6, 9)
 
 
-zip ÇÔ¼ö´Â µ¿ÀÏÇÑ °¹¼öÀÇ ¿ä¼Ò°ªÀ» °®´Â ½ÃÄö½º ÀÚ·áÇüÀ» ¹­¾îÁÖ´Â ¿ªÇÒ
+zip í•¨ìˆ˜ëŠ” ë™ì¼í•œ ê°¯ìˆ˜ì˜ ìš”ì†Œê°’ì„ ê°–ëŠ” ì‹œí€€ìŠ¤ ìë£Œí˜•ì„ ë¬¶ì–´ì£¼ëŠ” ì—­í• 
 print(zip([1,2,3], [4,5,6]))
 [(1, 4), (2, 5), (3, 6)]
 
@@ -480,7 +480,7 @@ print(zip([1,2,3], [4,5,6], [7,8,9]))
 print(zip("abc", "def"))
 [('a', 'd'), ('b', 'e'), ('c', 'f')]
 
-# for zip ¿¹Á¦1
+# for zip ì˜ˆì œ1
 a = [1,2,3,4,5]
 b = ['a','b','c','d','e']
  
@@ -493,7 +493,7 @@ for x,y in zip (a,b):
 # 5 e
 
   
-# for zip ¿¹Á¦2
+# for zip ì˜ˆì œ2
 t = np.array( [[0], [3]])
 print(t)            #  [[0], [3]]
 print(t.flatten())  # [0 3]
@@ -525,14 +525,14 @@ pp.pprint(t)
 #        ]])
 ```
 
-tÀÇ axis 0 1 2 ¸¦  axis 1 0 2 ·Î ¹Ù²Ù°Ú´Ù
+tì˜ axis 0 1 2 ë¥¼  axis 1 0 2 ë¡œ ë°”ê¾¸ê² ë‹¤
 ```
 axis 0  [0, 1, 2], [6, 7, 8]
         [3, 4, 5], [9, 10, 11]
         
 axis 1  [[0, 1, 2], [3, 4, 5]]
 axis 1  [[6, 7, 8], [9, 10, 11]]
-(axis 1 °ªµéÀÇ ¡é ¹æÇâÀÌ axis 0 ÀÓ)
+(axis 1 ê°’ë“¤ì˜ â†“ ë°©í–¥ì´ axis 0 ì„)
 
 axis 2  [0, 1, 2], ...
 ```
@@ -551,14 +551,14 @@ pp.pprint(sess.run(t1))
 #        ]])
 ```
 
-t1ÀÇ axis 0 1 2 ¸¦  axis 1 0 2 ·Î ¹Ù²Ù°Ú´Ù
+t1ì˜ axis 0 1 2 ë¥¼  axis 1 0 2 ë¡œ ë°”ê¾¸ê² ë‹¤
 ```
 axis 0  [0, 1, 2], [3, 4, 5]
         [6, 7, 8], [9, 10, 11]
         
 axis 1  [[0, 1, 2], [6, 7, 8]]
 axis 1  [[3, 4, 5], [9, 10, 11]]
-(axis 1 °ªµéÀÇ ¡é ¹æÇâÀÌ axis 0 ÀÓ)
+(axis 1 ê°’ë“¤ì˜ â†“ ë°©í–¥ì´ axis 0 ì„)
 
 axis 2  [0, 1, 2], ...
 ```
@@ -578,7 +578,7 @@ pp.pprint(sess.run(t))
 ```
 
 
-tÀÇ axis 0 1 2 ¸¦  axis 1 2 0 À¸·Î ¹Ù²Ù°Ú´Ù
+tì˜ axis 0 1 2 ë¥¼  axis 1 2 0 ìœ¼ë¡œ ë°”ê¾¸ê² ë‹¤
 ```
 shape (2, 2, 3) -> shape (2, 3, 2)
 
@@ -587,17 +587,17 @@ axis 0  [0, 1, 2], [6, 7, 8]
         
 axis 1  [[0, 1, 2], [3, 4, 5]]
 axis 1  [[6, 7, 8], [9, 10, 11]]
-(axis 1 °ªµéÀÇ ¡é ¹æÇâÀÌ axis 0 ÀÓ)
+(axis 1 ê°’ë“¤ì˜ â†“ ë°©í–¥ì´ axis 0 ì„)
 
 axis 2  [0, 1, 2], ...
 ```
 
 ```
-0 (°ú°Åaxis 1)  [0, 1, 2], [3, 4, 5]
-0 (°ú°Åaxis 1)  [6, 7, 8], [9, 10, 11]
+0 (ê³¼ê±°axis 1)  [0, 1, 2], [3, 4, 5]
+0 (ê³¼ê±°axis 1)  [6, 7, 8], [9, 10, 11]
 
-1 (°ú°Åaxis 2)  [ 0,  6], [ 1,  7], [ 2,  8]
-1 (°ú°Åaxis 2)  [ 3,  9], [ 4, 10], [ 5, 11]
+1 (ê³¼ê±°axis 2)  [ 0,  6], [ 1,  7], [ 2,  8]
+1 (ê³¼ê±°axis 2)  [ 3,  9], [ 4, 10], [ 5, 11]
 ```
 ```
 t2 = tf.transpose(t, [1, 2, 0])
