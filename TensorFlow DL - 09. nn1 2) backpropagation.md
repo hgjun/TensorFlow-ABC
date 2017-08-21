@@ -8,7 +8,7 @@
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Linear backpropagation
+### Linear Backpropagation
 
 ```
 import tensorflow as tf
@@ -75,7 +75,7 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-09-5-linear_back
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Multi Linear backpropagation
+### Multi Linear Backpropagation
 
 ```
 import tensorflow as tf
@@ -146,8 +146,7 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-09-6-multi-linea
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Sigmoid backpropagaion
-
+### Sigmoid Backpropagation
 
 ```
 import tensorflow as tf
@@ -260,7 +259,7 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-09-7-sigmoid_bac
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### XOR NN backpropagation
+### XOR NN Backpropagation
 
 ```
 import tensorflow as tf
