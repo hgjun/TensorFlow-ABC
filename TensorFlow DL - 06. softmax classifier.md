@@ -4,7 +4,7 @@
 ## 06. Softmax Classification
 
 
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://www.youtube.com/watch?v=VRnubDzIy3A&feature=youtu.be
 
 
@@ -14,12 +14,12 @@ https://www.youtube.com/watch?v=VRnubDzIy3A&feature=youtu.be
 
 ### One-hot encoded vector
 
-BInary logistic classification ÀÏ ¶§´Â True/False Ç¥Çö À§ÇØ  
-Y °ªÀ¸·Î 0, 1 »ç¿ëÇÏ¸é µÆ¾ú¾î
+BInary logistic classification ì¼ ë•ŒëŠ” True/False í‘œí˜„ ìœ„í•´  
+Y ê°’ìœ¼ë¡œ 0, 1 ì‚¬ìš©í•˜ë©´ ëì—ˆì–´
 
-Multinomial logistic classification ÀÏ ¶§´Â One-hot encoded vector ÇÊ¿ä  
+Multinomial logistic classification ì¼ ë•ŒëŠ” One-hot encoded vector í•„ìš”  
 
-(¿¹) YÀÇ µµ¸ŞÀÎ {A, B, C} ÀÏ¶§ ÀÌ ¼¼°ªÀ» one-hot encoded vector·Î Ç¥ÇöÇÏ¸é  
+(ì˜ˆ) Yì˜ ë„ë©”ì¸ {A, B, C} ì¼ë•Œ ì´ ì„¸ê°’ì„ one-hot encoded vectorë¡œ í‘œí˜„í•˜ë©´  
 A = (1, 0, 0)  
 B = (0, 1, 0)  
 C = (0, 0, 1)  
@@ -31,23 +31,23 @@ C = (0, 0, 1)
 
 ### Softmax function
 
-Linear model À» »ç¿ëÇØ hypothesis¸¦ Á¤ÀÇÇÏ¸é
+Linear model ì„ ì‚¬ìš©í•´ hypothesisë¥¼ ì •ì˜í•˜ë©´
 
 H(X) = WX
 
-H(X)ÀÇ °ªÀº Label (½ÇÁ¦ Y°ª) °ú ¹Ù·Î ºñ±³ÇÏ±â ¾î·Æ´Ù  
-µû¶ó¼­ One-hot encoded vectorÀÎ Y¿Í ºñ±³ÇÒ ¼ö ÀÖµµ·Ï  
-Softmax function¿¡ H(X)°ªÀ» ÀÔ·ÂÇØ¼­ 0 ~ 1 »çÀÌÀÇ °ªÀ¸·Î ¸¸µé¾îÁØ´Ù  
-È®·ü°ªÀÇ ÀÇ¹Ì·Î »ç¿ëÇÒ ¼ö ÀÖ°Ô µÈ´Ù!
+H(X)ì˜ ê°’ì€ Label (ì‹¤ì œ Yê°’) ê³¼ ë°”ë¡œ ë¹„êµí•˜ê¸° ì–´ë µë‹¤  
+ë”°ë¼ì„œ One-hot encoded vectorì¸ Yì™€ ë¹„êµí•  ìˆ˜ ìˆë„ë¡  
+Softmax functionì— H(X)ê°’ì„ ì…ë ¥í•´ì„œ 0 ~ 1 ì‚¬ì´ì˜ ê°’ìœ¼ë¡œ ë§Œë“¤ì–´ì¤€ë‹¤  
+í™•ë¥ ê°’ì˜ ì˜ë¯¸ë¡œ ì‚¬ìš©í•  ìˆ˜ ìˆê²Œ ëœë‹¤!
 
-Áï Softmax functionÀÇ ¿ªÇÒ  
-H(X) Score °ªÀ» Probability °ªÀ¸·Î ¸¸µé¾îÁØ´Ù
+ì¦‰ Softmax functionì˜ ì—­í•   
+H(X) Score ê°’ì„ Probability ê°’ìœ¼ë¡œ ë§Œë“¤ì–´ì¤€ë‹¤
 
 
-Softmax function S(yi) = exp(yi) / ¥Òexp(yj)
+Softmax function S(yi) = exp(yi) / Î£exp(yj)
 
-(¿¹)
-H(X) ¸¦ y ·Î »ç¿ëÇØ Ç¥½ÃÇØ¼­,  
+(ì˜ˆ)
+H(X) ë¥¼ y ë¡œ ì‚¬ìš©í•´ í‘œì‹œí•´ì„œ,  
 y1 = 2.0  
 y2 = 1.0  
 y3 = 0.1  
@@ -56,14 +56,14 @@ exp(2.0) = 7.389
 exp(1.0) = 2.718  
 exp(0.1) = 1.105  
 
-¥Òexp(yj) = (exp(2.0) + exp(1.0) + exp(0.1))  
+Î£exp(yj) = (exp(2.0) + exp(1.0) + exp(0.1))  
           = 7.389 + 2.718 + 1.105 = 11.213
 
-S(y1) = exp(2.0) / ¥Òexp(yj) = 0.659  
-S(y2) = exp(1.0) / ¥Òexp(yj) = 0.242  
-S(y3) = exp(0.1) / ¥Òexp(yj) = 0.098  
+S(y1) = exp(2.0) / Î£exp(yj) = 0.659  
+S(y2) = exp(1.0) / Î£exp(yj) = 0.242  
+S(y3) = exp(0.1) / Î£exp(yj) = 0.098  
 
-S(y1) + S(y2) + S(y3) = 1.0  È®·üÀÇ Æ¯¼º (´Ù ´õÇÏ¸é 1) !!
+S(y1) + S(y2) + S(y3) = 1.0  í™•ë¥ ì˜ íŠ¹ì„± (ë‹¤ ë”í•˜ë©´ 1) !!
 
 
 <br /><br />
@@ -72,50 +72,50 @@ S(y1) + S(y2) + S(y3) = 1.0  È®·üÀÇ Æ¯¼º (´Ù ´õÇÏ¸é 1) !!
 
 ### Cross Entropy
 
-°è»ê °úÁ¤
+ê³„ì‚° ê³¼ì •
 ```
 [1]  X     input
 
-    ¡é     linear model WX + b
+    â†“     linear model WX + b
 
-[2]  y     score (logit ÀÌ¶ó°íµµ ºÎ¸§)
+[2]  y     score (logit ì´ë¼ê³ ë„ ë¶€ë¦„)
 
-    ¡é     softmax function S(y) = exp(yi) / ¥Òexp(yj)
+    â†“     softmax function S(y) = exp(yi) / Î£exp(yj)
 
 [3] S(y)   probability
 
-    ¡é     cost function    L = 1/N * ¥Ò D(S(WXi + b), Li)    cost function LÀº loss ÀÇ¹Ì 
-           cross entropy    D(S, L) = - ¥Ò Li log(Si)         D(S, Li)ÀÇ LÀº label ÀÇ¹Ì
-           gradient descent W <- W + ¥ÄW ,  ¥ÄW = - ¥ç¥ÄL
+    â†“     cost function    L = 1/N * Î£ D(S(WXi + b), Li)    cost function Lì€ loss ì˜ë¯¸ 
+           cross entropy    D(S, L) = - Î£ Li log(Si)         D(S, Li)ì˜ Lì€ label ì˜ë¯¸
+           gradient descent W <- W + Î”W ,  Î”W = - Î·Î”L
 
 [4] L      label (one-hot encoded vector)
 ```
 
-softmax·Î ±¸ÇÑ ÇĞ½À°á°ú°ª S(y)¿Í ½ÇÁ¦°ª L À» ºñ±³ÇÏ±âÀ§ÇØ cross entropy¸¦ »ç¿ëÇÑ´Ù
+softmaxë¡œ êµ¬í•œ í•™ìŠµê²°ê³¼ê°’ S(y)ì™€ ì‹¤ì œê°’ L ì„ ë¹„êµí•˜ê¸°ìœ„í•´ cross entropyë¥¼ ì‚¬ìš©í•œë‹¤
 
-S(y)´Â 0 ~ 1 »çÀÌÀÇ È®·ü°ªÀ¸·Î º¼ ¼ö ÀÖ°í  
-L µµ one-hot encoded vector ÀÌ¹Ç·Î 0.0 or 1.0ÀÎ È®·ü°ªÀ¸·Î º¼ ¼ö ÀÖ´Ù  
-S(y) ¿Í L Â÷ÀÌ°¡ ¾ó¸¶³ª ³ª´ÂÁö º¸±â À§ÇØ cross entropy »ç¿ë
+S(y)ëŠ” 0 ~ 1 ì‚¬ì´ì˜ í™•ë¥ ê°’ìœ¼ë¡œ ë³¼ ìˆ˜ ìˆê³   
+L ë„ one-hot encoded vector ì´ë¯€ë¡œ 0.0 or 1.0ì¸ í™•ë¥ ê°’ìœ¼ë¡œ ë³¼ ìˆ˜ ìˆë‹¤  
+S(y) ì™€ L ì°¨ì´ê°€ ì–¼ë§ˆë‚˜ ë‚˜ëŠ”ì§€ ë³´ê¸° ìœ„í•´ cross entropy ì‚¬ìš©
 
-D(S, L) = D(S(WX + b), L) = - ¥Ò Li log(Si)
+D(S, L) = D(S(WX + b), L) = - Î£ Li log(Si)
 
-* D( ) ÀÇ D ´Â distance
-* D( ) ´Â Symmetric ÇÏÁö ¾ÊÀ½ D(S, L) ¡ÁD(L, S)
+* D( ) ì˜ D ëŠ” distance
+* D( ) ëŠ” Symmetric í•˜ì§€ ì•ŠìŒ D(S, L) â‰ D(L, S)
 
-SemanticÀ» °í·ÁÇÑ ¼ö½ÄÀº   ¥Ò Li * -log(Si) ÀÓ
+Semanticì„ ê³ ë ¤í•œ ìˆ˜ì‹ì€   Î£ Li * -log(Si) ì„
 
-(¿¹1)  
-Li °¡ [1 0] ÀÌ°í Si °¡ [0 0.99] ÀÌ¸é  
-Li * -log(Si) = [1 0] ¢Á [¡Ä 0] = ¡Ä  
-Å« °ªÀÌ µÇ¼­ weight update ½ÃÅ°°Ô µÊ
-
-
-(¿¹2)  
-Li °¡ [1 0] ÀÌ°í Si °¡ [0.99 0] ÀÌ¸é  
-Li * -log(Si) = [1 0] ¢Á [0 ¡Ä] = 0
+(ì˜ˆ1)  
+Li ê°€ [1 0] ì´ê³  Si ê°€ [0 0.99] ì´ë©´  
+Li * -log(Si) = [1 0] âŠ™ [âˆ 0] = âˆ  
+í° ê°’ì´ ë˜ì„œ weight update ì‹œí‚¤ê²Œ ë¨
 
 
-ÂüÁ¶ ¸µÅ©  
+(ì˜ˆ2)  
+Li ê°€ [1 0] ì´ê³  Si ê°€ [0.99 0] ì´ë©´  
+Li * -log(Si) = [1 0] âŠ™ [0 âˆ] = 0
+
+
+ì°¸ì¡° ë§í¬  
 https://www.youtube.com/watch?v=tRsSi_sqXjI
 https://www.youtube.com/watch?v=x449QQDhMDE
 
@@ -126,35 +126,35 @@ https://www.youtube.com/watch?v=x449QQDhMDE
 
 ### Cross Entropy vs. Mean Squared Error
 
-ÇĞ½À ½ÃÅ³ ¶§ MSE ´ë½Å Cross Entropy »ç¿ëÇÏ´Â ÀÌÀ¯
+í•™ìŠµ ì‹œí‚¬ ë•Œ MSE ëŒ€ì‹  Cross Entropy ì‚¬ìš©í•˜ëŠ” ì´ìœ 
 
 
-ÀÌÀü binary logisitc classifictionÀº False °¡ ¾Æ´Ï¸é True¿´¾î  
-±×·¯´Ï Æ²¸°°Í¸¸ ºÁ¼­ Mean squared error ¸¦ »ç¿ëÇØ  
-Æ²¸° Á¤µµ¿¡ µû¶ó weight¸¦ update ½ÃÄ×¾î
+ì´ì „ binary logisitc classifictionì€ False ê°€ ì•„ë‹ˆë©´ Trueì˜€ì–´  
+ê·¸ëŸ¬ë‹ˆ í‹€ë¦°ê²ƒë§Œ ë´ì„œ Mean squared error ë¥¼ ì‚¬ìš©í•´  
+í‹€ë¦° ì •ë„ì— ë”°ë¼ weightë¥¼ update ì‹œì¼°ì–´
 
 
-±×·±µ¥ multinomial logistic classificationÀº Æ²¸°°Í¸¸ ºÁ¼± ¾ÈµÅ  
+ê·¸ëŸ°ë° multinomial logistic classificationì€ í‹€ë¦°ê²ƒë§Œ ë´ì„  ì•ˆë¼  
 
 Li = (1, 0, 0)  
 
-S(yi) = (0, 0.5, 0) ÀÌ¸é MSE·Îµµ Æ²¸° Á¤µµ¿¡ µû¶ó ¾÷µ¥ÀÌÆ® °¡´É  
-S(yi) = (0.6, 0, 0) ÀÌ¸é error ¾ø´Â °É·Î ºÁ¼­ ¾÷µ¥ÀÌÆ® ÇÏÁö ¾Ê¾Æ
+S(yi) = (0, 0.5, 0) ì´ë©´ MSEë¡œë„ í‹€ë¦° ì •ë„ì— ë”°ë¼ ì—…ë°ì´íŠ¸ ê°€ëŠ¥  
+S(yi) = (0.6, 0, 0) ì´ë©´ error ì—†ëŠ” ê±¸ë¡œ ë´ì„œ ì—…ë°ì´íŠ¸ í•˜ì§€ ì•Šì•„
 
-ÇÏÁö¸¸ (0.7, 0, 0) ÀÌ¶ó¸é Li¿Í ´õ ºñ½ÁÇÑ °ªÀÌ±â¿¡ ¸Â´Â °Í¿¡ ´ëÇØ¼­µµ ¾÷µ¥ÀÌÆ® ÇØÁà¾ßÇØ!
+í•˜ì§€ë§Œ (0.7, 0, 0) ì´ë¼ë©´ Liì™€ ë” ë¹„ìŠ·í•œ ê°’ì´ê¸°ì— ë§ëŠ” ê²ƒì— ëŒ€í•´ì„œë„ ì—…ë°ì´íŠ¸ í•´ì¤˜ì•¼í•´!
 
-±×·¡¼­ D(S, L) ·Î µÎ °ªÀÇ distance¸¦ ÃøÁ¤ÇØ¼­  
-¾ó¸¶³ª ¸¹ÀÌ Æ²·È´ÂÁö, ¾ó¸¶³ª Á¤È®ÇÏ°Ô ¸Â¾Ò´ÂÁö¸¦ º¸°í
-´õ Àß ¾÷µ¥ÀÌÆ® ÇØÁÖ±â À§ÇÑ °Í!
+ê·¸ë˜ì„œ D(S, L) ë¡œ ë‘ ê°’ì˜ distanceë¥¼ ì¸¡ì •í•´ì„œ  
+ì–¼ë§ˆë‚˜ ë§ì´ í‹€ë ¸ëŠ”ì§€, ì–¼ë§ˆë‚˜ ì •í™•í•˜ê²Œ ë§ì•˜ëŠ”ì§€ë¥¼ ë³´ê³ 
+ë” ì˜ ì—…ë°ì´íŠ¸ í•´ì£¼ê¸° ìœ„í•œ ê²ƒ!
 
 
 (cf)
-update ¸¦ ´õ ÀßÇØÁÖ´Â Ãø¸é¿¡¼­ ºñ½ÁÇÑ ¿¹·Î  
-sigmoid functionÀÌ xÃàÀÌ ¸Å¿ì Å©°Å³ª ÀÛÀ¸¸é º¯È­ÀÇ Á¤µµ°¡ ÀÛ¾Æ update Àß µÇÁö ¾Ê¾Æ  
-±×·±µ¥ LeRU ´Â º¯È­ ÀÏÁ¤ÇØ xÃà ¸Å¿ì Å©°Å³ª ÀÛ¾Æµµ update »ó´ëÀûÀ¸·Î ´õ Àß ÇØÁÖ´Â ÀÌÁ¡ ÀÖ´Ù
+update ë¥¼ ë” ì˜í•´ì£¼ëŠ” ì¸¡ë©´ì—ì„œ ë¹„ìŠ·í•œ ì˜ˆë¡œ  
+sigmoid functionì´ xì¶•ì´ ë§¤ìš° í¬ê±°ë‚˜ ì‘ìœ¼ë©´ ë³€í™”ì˜ ì •ë„ê°€ ì‘ì•„ update ì˜ ë˜ì§€ ì•Šì•„  
+ê·¸ëŸ°ë° LeRU ëŠ” ë³€í™” ì¼ì •í•´ xì¶• ë§¤ìš° í¬ê±°ë‚˜ ì‘ì•„ë„ update ìƒëŒ€ì ìœ¼ë¡œ ë” ì˜ í•´ì£¼ëŠ” ì´ì  ìˆë‹¤
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://jamesmccaffrey.wordpress.com/2013/11/05/why-you-should-use-cross-entropy-error-instead-of-classification-error-or-mean-squared-error-for-neural-network-classifier-training/  
 http://funmv2013.blogspot.kr/2017/01/cross-entropy.html
 
@@ -167,45 +167,45 @@ http://funmv2013.blogspot.kr/2017/01/cross-entropy.html
 
 Loss L:
 
-L = 1/N * ¥Ò D(S(WXi + b), Li)
+L = 1/N * Î£ D(S(WXi + b), Li)
 
-W <- W + ¥ÄW
+W <- W + Î”W
 
-¥ÄW = - ¥ç¥ÄL
+Î”W = - Î·Î”L
 
-(Loss functionÀÇ ¹ÌºĞÀº tensor flow¿¡¼­´Â ¾Ë¾Æ¼­ ÇØÁÜ)  
-¥Ò´Â N°³ÀÇ training setÀÇ D(Si, Li) ¸¦ ´Ù ÇÕÃÄÁØ´Ù.
+(Loss functionì˜ ë¯¸ë¶„ì€ tensor flowì—ì„œëŠ” ì•Œì•„ì„œ í•´ì¤Œ)  
+Î£ëŠ” Nê°œì˜ training setì˜ D(Si, Li) ë¥¼ ë‹¤ í•©ì³ì¤€ë‹¤.
  
 
 #### Gradient descent
 
-ÀÌ°Å·Î Min cost ±¸ÇÏ±â À§ÇØ ¹ÌºĞÇØ¼­ ¥ÄW = - ¥ç¥ÄL ·Î  
-°ªÀ» °è¼Ó ¾÷µ¥ÀÌÆ® ÇØ ³ª°£´Ù
+ì´ê±°ë¡œ Min cost êµ¬í•˜ê¸° ìœ„í•´ ë¯¸ë¶„í•´ì„œ Î”W = - Î·Î”L ë¡œ  
+ê°’ì„ ê³„ì† ì—…ë°ì´íŠ¸ í•´ ë‚˜ê°„ë‹¤
 
 (cf) Logistic cost vs. Cross Entropy
 
 Logistic cost 
 
-C(H(x), y) = - 1/m ¥Ò( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
+C(H(x), y) = - 1/m Î£( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
 
-Cost(W) = - 1/m ¥Ò( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
+Cost(W) = - 1/m Î£( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
 
-Logistic cost ¿Í Cross entropy´Â °°Àº ÀÇ¹Ì·Î º¼ ¼ö ÀÖ´Ù
+Logistic cost ì™€ Cross entropyëŠ” ê°™ì€ ì˜ë¯¸ë¡œ ë³¼ ìˆ˜ ìˆë‹¤
 
-<br />
+
 ```
-logistic ¿¡¼­´Â y°ªÀÌ 0 ¶Ç´Â 1 ÀÌÀÖ´Âµ¥,
-ÀÌ¸¦ one-hot encoding º¤ÅÍ·Î ¹Ù²ã¼­ cross entropy¸¦ Àû¿ëÇØ º¸¼¼¿ä.
+logistic ì—ì„œëŠ” yê°’ì´ 0 ë˜ëŠ” 1 ì´ìˆëŠ”ë°,
+ì´ë¥¼ one-hot encoding ë²¡í„°ë¡œ ë°”ê¿”ì„œ cross entropyë¥¼ ì ìš©í•´ ë³´ì„¸ìš”.
 0=>[1, 0], 1=>[0, 1].
 
-logistic À» Ç®ÀÚ¸é 
+logistic ì„ í’€ìë©´ 
 -log(H(x))   : y = 1 => [0, 1]
 -log(1-H(x)) : y = 0 => [1, 0]
 
-cross entropy ¸¦ Ç®ÀÚ¸é
+cross entropy ë¥¼ í’€ìë©´
 sigma(Li * -log(Si))
 
-y = L, H(x) = S ÀÌ¹Ç·Î
+y = L, H(x) = S ì´ë¯€ë¡œ
 
 L:[0, 1], S:H(x)
 sigma([0, 1] ( * ) -log[0, 1]) = 0
@@ -213,7 +213,7 @@ sigma([0, 1] ( * ) -log[0, 1]) = 0
 L:[1, 0], S:1-H(x)
 sigma([1, 0] ( * ) -log[1-0, 1-1]) = sigma([1,0] ( * ) -log[1,0]) = 0
 
-ÀÌ ´ëÀÔÀ¸·Î º¸¸é logistic cost & cross entropy ´Â °°Àº ÀÇ¹ÌÀÔ´Ï´Ù.
+ì´ ëŒ€ì…ìœ¼ë¡œ ë³´ë©´ logistic cost & cross entropy ëŠ” ê°™ì€ ì˜ë¯¸ì…ë‹ˆë‹¤.
 ------------------------------------------------------------------
  https://www.youtube.com/watch?v=jMU9G5WEtBc&feature=youtu.be
 ``` 
@@ -227,19 +227,19 @@ sigma([1, 0] ( * ) -log[1-0, 1-1]) = sigma([1,0] ( * ) -log[1,0]) = 0
 ```
 [1]  X     input
 
-    ¡é     linear model     tf.matmul(X, W) + b
+    â†“     linear model     tf.matmul(X, W) + b
 
 [2]  y     score (logit)
 
-    ¡é     softmax function S(y) = exp(yi) / ¥Òexp(yj)
+    â†“     softmax function S(y) = exp(yi) / Î£exp(yj)
                             hypo = tf.nn.softmax(tf.matmul(X, W) + b)
-                            ¾î¶² labelÀÌ µÉ°Ç°¡¿¡ ´ëÇÑ È®·ü°ªÀ¸·Î ¸¸µé¾îÁÜ
+                            ì–´ë–¤ labelì´ ë ê±´ê°€ì— ëŒ€í•œ í™•ë¥ ê°’ìœ¼ë¡œ ë§Œë“¤ì–´ì¤Œ
 
 [3] S(y)   probability
 
-    ¡é     cost function    L = 1/N * ¥Ò D(S(WXi + b), Li)    cost function LÀº loss ÀÇ¹Ì 
-           cross entropy    D(S, L) = - ¥Ò Li log(Si)         D(S, Li)ÀÇ LÀº label ÀÇ¹Ì
-           gradient descent W <- W + ¥ÄW ,  ¥ÄW = - ¥ç¥ÄL
+    â†“     cost function    L = 1/N * Î£ D(S(WXi + b), Li)    cost function Lì€ loss ì˜ë¯¸ 
+           cross entropy    D(S, L) = - Î£ Li log(Si)         D(S, Li)ì˜ Lì€ label ì˜ë¯¸
+           gradient descent W <- W + Î”W ,  Î”W = - Î·Î”L
            
            cost = tf.reduce_mean( -tf.reduce_sum(Y * tf.log(hypo), axis = 1)) 
            optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.1).minimize(cost)
@@ -273,26 +273,26 @@ y_data = [[0, 0, 1],
           [1, 0, 0],
           [1, 0, 0]] # one-hot endoded
 
-nb_classes = 3   # nb_´Â number of ¶ó´Â ÀÇ¹Ì·Î ¾´ prefix ÀÎµí
+nb_classes = 3   # nb_ëŠ” number of ë¼ëŠ” ì˜ë¯¸ë¡œ ì“´ prefix ì¸ë“¯
 
 # placeholders for a tensor that will be always fed
 X = tf.placeholder(tf.float32, shape = [None, 4])
 Y = tf.placeholder(tf.float32, shape = [None, nb_classes])
 
-W = tf.Variable(tf.random_normal([4, nb_classes]), name='weight') # X feature °³¼ö(4), Y °³¼ö(3) -> shape[4, 3] 4°³ µé¾î¿Í¼­ 3°³ ³ª¿Í
-b = tf.Variable(tf.random_normal([nb_classes]), name='bias') # ³ª°¡´Â °ª (Y)ÀÇ °³¼ö
+W = tf.Variable(tf.random_normal([4, nb_classes]), name='weight') # X feature ê°œìˆ˜(4), Y ê°œìˆ˜(3) -> shape[4, 3] 4ê°œ ë“¤ì–´ì™€ì„œ 3ê°œ ë‚˜ì™€
+b = tf.Variable(tf.random_normal([nb_classes]), name='bias') # ë‚˜ê°€ëŠ” ê°’ (Y)ì˜ ê°œìˆ˜
 
-# hypothesis H(X) = exp(yi) / ¥Òexp(yj)
+# hypothesis H(X) = exp(yi) / Î£exp(yj)
 # softmax = tf.exp(logits) / tf.reduce_sum(tf.exp(logits), dim)
 h = tf.nn.softmax(tf.matmul(X, W) + b)
 
 # cost function: cross entropy cost/loss
-# cost function    L = 1/N * ¥Ò D(S(WXi + b), Li)    cost function LÀº loss ÀÇ¹Ì 
-# cross entropy    D(S, L) = - ¥Ò Li log(Si)         D(S, Li)ÀÇ LÀº label ÀÇ¹Ì
+# cost function    L = 1/N * Î£ D(S(WXi + b), Li)    cost function Lì€ loss ì˜ë¯¸ 
+# cross entropy    D(S, L) = - Î£ Li log(Si)         D(S, Li)ì˜ Lì€ label ì˜ë¯¸
 cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(h), axis = 1))
 
 # Minimize: small learning rate
-# W <- W - ¥ç* ¡ÓCost(W) / ¡ÓW
+# W <- W - Î·* âˆ‚Cost(W) / âˆ‚W
 optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01)
 train = optimizer.minimize(cost)
 
@@ -334,8 +334,8 @@ with tf.Session() as sess:                       # launch graph in a session
 
 
 (cf)
-tf¿¡¼­ »ç¿ëµÇ´Â ÇÔ¼öÀÇ argument ÀÌ¸§  
-axis, dimension, dim, indices --> ´Ù axis ·Î ÅëÀÏµÊ
+tfì—ì„œ ì‚¬ìš©ë˜ëŠ” í•¨ìˆ˜ì˜ argument ì´ë¦„  
+axis, dimension, dim, indices --> ë‹¤ axis ë¡œ í†µì¼ë¨
 
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-06-1-softmax_classifier.py
 
@@ -346,7 +346,7 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-06-1-softmax_cla
 
 ## 06-2. Fancy Softmax Classifier
 
-cross_entropy, one_hot, Æ¯È÷ reshape ÀÌ¿ëÇØ ±¸ÇöÇÏ±â
+cross_entropy, one_hot, íŠ¹íˆ reshape ì´ìš©í•´ êµ¬í˜„í•˜ê¸°
 
 
 <br /><br />
@@ -358,19 +358,19 @@ cross_entropy, one_hot, Æ¯È÷ reshape ÀÌ¿ëÇØ ±¸ÇöÇÏ±â
 ```
 [1]  X     input
 
-    ¡é     linear model     tf.matmul(X, W) + b
+    â†“     linear model     tf.matmul(X, W) + b
 
 [2]  y     score (logit)
 
-    ¡é     softmax function S(y) = exp(yi) / ¥Òexp(yj)
+    â†“     softmax function S(y) = exp(yi) / Î£exp(yj)
                             hypo = tf.nn.softmax(tf.matmul(X, W) + b)
-                            ¾î¶² labelÀÌ µÉ°Ç°¡¿¡ ´ëÇÑ È®·ü°ªÀ¸·Î ¸¸µé¾îÁÜ
+                            ì–´ë–¤ labelì´ ë ê±´ê°€ì— ëŒ€í•œ í™•ë¥ ê°’ìœ¼ë¡œ ë§Œë“¤ì–´ì¤Œ
 
 [3] S(y)   probability
 
-    ¡é     cost function    L = 1/N * ¥Ò D(S(WXi + b), Li)    cost function LÀº loss ÀÇ¹Ì 
-           cross entropy    D(S, L) = - ¥Ò Li log(Si)         D(S, Li)ÀÇ LÀº label ÀÇ¹Ì
-           gradient descent W <- W + ¥ÄW ,  ¥ÄW = - ¥ç¥ÄL
+    â†“     cost function    L = 1/N * Î£ D(S(WXi + b), Li)    cost function Lì€ loss ì˜ë¯¸ 
+           cross entropy    D(S, L) = - Î£ Li log(Si)         D(S, Li)ì˜ Lì€ label ì˜ë¯¸
+           gradient descent W <- W + Î”W ,  Î”W = - Î·Î”L
            
            cost = tf.reduce_mean( -tf.reduce_sum(Y * tf.log(hypo), axis = 1))
            optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.1).minimize(cost)
@@ -385,21 +385,21 @@ cross_entropy, one_hot, Æ¯È÷ reshape ÀÌ¿ëÇØ ±¸ÇöÇÏ±â
 
 ### softmax_cross_entropy_with_logits
 
-¾Æ±î ÀÌ·¸°Ô ½è¾ú¾î
+ì•„ê¹Œ ì´ë ‡ê²Œ ì¼ì—ˆì–´
 ```
 # softmax
-logits = tf.matmul(X, W) + b    // logit È¤Àº score
-hypo   = tf.nn.softmax(logits)  // score ¿¡¼­ probability °ªÀ¸·Î º¯°æ
+logits = tf.matmul(X, W) + b    // logit í˜¹ì€ score
+hypo   = tf.nn.softmax(logits)  // score ì—ì„œ probability ê°’ìœ¼ë¡œ ë³€ê²½
 
 # cost function
-cost = tf.reduce_mean( -tf.reduce_sum(Y * tf.log(hypo), axis = 1))  # Y ´Â one-hot encoded
+cost = tf.reduce_mean( -tf.reduce_sum(Y * tf.log(hypo), axis = 1))  # Y ëŠ” one-hot encoded
 ```
 
 
 - tf.nn.softmax_cross_entropy_with_logits
-  - À§ÀÇ ±¸¹®À» ´õ °£¼ÒÇÏ°Ô ¸¸µé¾îÁÖ´Â tf ÇÔ¼ö
-  - softmax, cross entropy ¿ªÇÒ ÇØÁÜ (ÀÌ¸§ º¸¸é ¾Ë ¼ö ÀÖµí)
-  - µÎ ÀÔ·Â°ª ÇÊ¿ä: logit (softmax µé¾î°¡±â ÀüÀÇ °ª), Y °ª
+  - ìœ„ì˜ êµ¬ë¬¸ì„ ë” ê°„ì†Œí•˜ê²Œ ë§Œë“¤ì–´ì£¼ëŠ” tf í•¨ìˆ˜
+  - softmax, cross entropy ì—­í•  í•´ì¤Œ (ì´ë¦„ ë³´ë©´ ì•Œ ìˆ˜ ìˆë“¯)
+  - ë‘ ì…ë ¥ê°’ í•„ìš”: logit (softmax ë“¤ì–´ê°€ê¸° ì „ì˜ ê°’), Y ê°’
 
 ```
 cost_i = tf.nn.softmax_cross_entropy_with_logits(logits = logits, labels = Y_one_hot)
@@ -412,7 +412,7 @@ cost   = tf.reduce_mean(cost_i)
 
 ### Numpy: zip
 
-zip ÇÔ¼ö´Â µ¿ÀÏÇÑ °¹¼öÀÇ ¿ä¼Ò°ªÀ» °®´Â ½ÃÄö½º ÀÚ·áÇüÀ» ¹­¾îÁÖ´Â ¿ªÇÒ
+zip í•¨ìˆ˜ëŠ” ë™ì¼í•œ ê°¯ìˆ˜ì˜ ìš”ì†Œê°’ì„ ê°–ëŠ” ì‹œí€€ìŠ¤ ìë£Œí˜•ì„ ë¬¶ì–´ì£¼ëŠ” ì—­í• 
 
 ```
 import numpy as np
@@ -426,7 +426,7 @@ print(zip("abc", "def"))
 # [('a', 'd'), ('b', 'e'), ('c', 'f')]
 
 
-# for zip ¿¹Á¦1
+# for zip ì˜ˆì œ1
 a = [1,2,3,4,5]
 b = ['a','b','c','d','e']
  
@@ -439,7 +439,7 @@ for x,y in zip (a,b):
 # 5 e
 
   
-# for zip ¿¹Á¦2
+# for zip ì˜ˆì œ2
 t = np.array( [[0], [3]])
 print(t)            #  [[0], [3]]
 print(t.flatten())  # [0 3]
@@ -456,11 +456,11 @@ print(p, r)
 
 ### Animal classification
 
-softmax_cross_entropy_with_logits ÇÔ¼ö ¿¬½ÀÀ¸·Î  
-½ÇÁ¦ ¿¹Á¦ »ç¿ëÇØº¸±â (µ¿¹° µ¥ÀÌÅÍ)
+softmax_cross_entropy_with_logits í•¨ìˆ˜ ì—°ìŠµìœ¼ë¡œ  
+ì‹¤ì œ ì˜ˆì œ ì‚¬ìš©í•´ë³´ê¸° (ë™ë¬¼ ë°ì´í„°)
 
-data03_zoo.csv µ¥ÀÌÅÍ ÆÄÀÏÀº  
-C:\Users\(»ç¿ëÀÚ °èÁ¤ÀÌ¸§)\Docker\work ¿¡ ÀúÀåÇØ¼­ »ç¿ë
+data03_zoo.csv ë°ì´í„° íŒŒì¼ì€  
+C:\Users\(ì‚¬ìš©ì ê³„ì •ì´ë¦„)\Docker\work ì— ì €ì¥í•´ì„œ ì‚¬ìš©
 
 ```
 import tensorflow as tf
@@ -476,16 +476,16 @@ xy = np.loadtxt('data03_zoo.csv', delimiter = ',', dtype = np.float32)
 x_data = xy[:, 0:-1]
 y_data = xy[:, [-1]]
 
-# Y ¾ÆÁ÷ one-hot encoded µÇ±â Àü »óÅÂÀÓ
-# Y´Â 0 ~ 6ÀÇ °ª: birds, insect, fishes, amphibians, reptiles, mammals
+# Y ì•„ì§ one-hot encoded ë˜ê¸° ì „ ìƒíƒœì„
+# YëŠ” 0 ~ 6ì˜ ê°’: birds, insect, fishes, amphibians, reptiles, mammals
 print(x_data.shape, y_data.shape)
 
-nb_classes = 7  # Y´Â 7°³ÀÇ class·Î ±¸¼ºµÉ °ÍÀÌ´Ù (0 ~ 6)
+nb_classes = 7  # YëŠ” 7ê°œì˜ classë¡œ êµ¬ì„±ë  ê²ƒì´ë‹¤ (0 ~ 6)
 
 # placeholders for a tensor that will be always fed
-X = tf.placeholder(tf.float32, shape=[None, 16]) # X ¼Ó¼º °³¼ö 16°³
-Y = tf.placeholder(tf.int32  , shape=[None, 1])  # Y °³¼ö 1°³, ÁÖÀÇ!! int32 ½á¾ß!!!
-Y_one_hot = tf.one_hot(Y, nb_classes)            # Y °³¼ö 7°³ one-hot encoded µÈ ÈÄ
+X = tf.placeholder(tf.float32, shape=[None, 16]) # X ì†ì„± ê°œìˆ˜ 16ê°œ
+Y = tf.placeholder(tf.int32  , shape=[None, 1])  # Y ê°œìˆ˜ 1ê°œ, ì£¼ì˜!! int32 ì¨ì•¼!!!
+Y_one_hot = tf.one_hot(Y, nb_classes)            # Y ê°œìˆ˜ 7ê°œ one-hot encoded ëœ í›„
 Y_one_hot_tmp = Y_one_hot
 Y_one_hot = tf.reshape(Y_one_hot, [-1, nb_classes])
 Y_one_hot_reshaped = Y_one_hot
@@ -493,46 +493,46 @@ print("Y", Y)                        # shape = (?, 1)
 print("one_hot", Y_one_hot_tmp)      # shape = (?, 1, 7) 
 print("reshape", Y_one_hot_reshaped) # shape = (?, 7)
 
-# ±×·±µ¥ tf.one_hot ÇÔ¼ö´Â nÂ÷¿ø ÀÚ·á ÀÔ·ÂÇÏ¸é n + 1Â÷¿ø °á°ú¸¦ Ãâ·ÂÇØ -> reshape ÇÊ¿ä
-# (¿¹) µ¥ÀÌÅÍ ·¹ÄÚµå °³¼ö 2 ÀÌ°í, Ã¹¹øÂ° ÁÙÀÇ Y = 0,  µÎ¹øÂ° ÁÙ Y = 3 ÀÌ¶ó¸é
-#Y = np.array( [[0], [3]])                           # rank 2 (2Â÷¿ø)   shape = (2, 1)
+# ê·¸ëŸ°ë° tf.one_hot í•¨ìˆ˜ëŠ” nì°¨ì› ìë£Œ ì…ë ¥í•˜ë©´ n + 1ì°¨ì› ê²°ê³¼ë¥¼ ì¶œë ¥í•´ -> reshape í•„ìš”
+# (ì˜ˆ) ë°ì´í„° ë ˆì½”ë“œ ê°œìˆ˜ 2 ì´ê³ , ì²«ë²ˆì§¸ ì¤„ì˜ Y = 0,  ë‘ë²ˆì§¸ ì¤„ Y = 3 ì´ë¼ë©´
+#Y = np.array( [[0], [3]])                           # rank 2 (2ì°¨ì›)   shape = (2, 1)
 #print(Y, Y.shape)
-#Y_one_hot = tf.one_hot(Y, 6)                        # rank 3 (3Â÷¿ø)   shape = (2, 1, 6)
+#Y_one_hot = tf.one_hot(Y, 6)                        # rank 3 (3ì°¨ì›)   shape = (2, 1, 6)
 #print(Y_one_hot, Y_one_hot.shape)                   # [ [[1 0 0 0 0 0]], [[0 0 0 1 0 0 0]] ]
 #Y_one_hot_reshaped = tf.reshape(Y_one_hot, [-1, 6]) # shape = (2, 6)
 #print(Y_one_hot_reshaped, Y_one_hot_reshaped.shape) # [ [1 0 0 0 0 0], [0 0 0 1 0 0 0] ]
 
-W = tf.Variable(tf.random_normal([16, nb_classes]), name='weight') # X feature °³¼ö(4), Y °³¼ö(3) -> shape[4, 3] 4°³ µé¾î¿Í¼­ 3°³ ³ª¿Í
-b = tf.Variable(tf.random_normal([nb_classes]), name='bias') # ³ª°¡´Â °ª (Y)ÀÇ °³¼ö
+W = tf.Variable(tf.random_normal([16, nb_classes]), name='weight') # X feature ê°œìˆ˜(4), Y ê°œìˆ˜(3) -> shape[4, 3] 4ê°œ ë“¤ì–´ì™€ì„œ 3ê°œ ë‚˜ì™€
+b = tf.Variable(tf.random_normal([nb_classes]), name='bias') # ë‚˜ê°€ëŠ” ê°’ (Y)ì˜ ê°œìˆ˜
 
 # tf.nn.softmax computes softmax activations
-# hypothesis H(X) = exp(yi) / ¥Òexp(yj)
+# hypothesis H(X) = exp(yi) / Î£exp(yj)
 # softmax = tf.exp(logits) / tf.reduce_sum(tf.exp(logits), dim)
 logits = tf.matmul(X, W) + b
 h = tf.nn.softmax(logits)
 
 # cost function: cross entropy cost/loss
-# cost function    L = 1/N * ¥Ò D(S(WXi + b), Li)    cost function LÀº loss ÀÇ¹Ì 
-# cross entropy    D(S, L) = - ¥Ò Li log(Si)         D(S, Li)ÀÇ LÀº label ÀÇ¹Ì
+# cost function    L = 1/N * Î£ D(S(WXi + b), Li)    cost function Lì€ loss ì˜ë¯¸ 
+# cross entropy    D(S, L) = - Î£ Li log(Si)         D(S, Li)ì˜ Lì€ label ì˜ë¯¸
 # cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(h), axis = 1))
 cost_i = tf.nn.softmax_cross_entropy_with_logits(logits = logits, labels = Y_one_hot)
 cost   = tf.reduce_mean(cost_i)
 
 # Minimize: small learning rate
-# W <- W - ¥ç* ¡ÓCost(W) / ¡ÓW
+# W <- W - Î·* âˆ‚Cost(W) / âˆ‚W
 optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01)
 train = optimizer.minimize(cost)
 
 
 # Accuracy computation
-# (Âü°í) ÀÌÀü binary logistic classifier ¿¡¼­ÀÇ prediction ÄÚµå
+# (ì°¸ê³ ) ì´ì „ binary logistic classifier ì—ì„œì˜ prediction ì½”ë“œ
 # prediction         = tf.cast(h > 0.5, dtype = tf.float32) # 1.0 or 0.0
 # correct_prediction = tf.equal(prediction, Y)
 # accuracy  = tf.reduce_mean(tf.cast(correct_prediction, dtype = tf.float32))
-# 10 °³ Áß 5°³ true·Î ¸ÂÃèÀ¸¸é accuracy = true°³¼ö / ÀüÃ¼ °³¼ö = 0.5 µÉ °Í.
+# 10 ê°œ ì¤‘ 5ê°œ trueë¡œ ë§ì·„ìœ¼ë©´ accuracy = trueê°œìˆ˜ / ì „ì²´ ê°œìˆ˜ = 0.5 ë  ê²ƒ.
 
 prediction         = tf.argmax(h, 1)
-correct_prediction = tf.equal(prediction, tf.argmax(Y_one_hot, 1))  # ½ÇÁ¦ Y¿Í ¿¹ÃøÀÌ ¸ÂÀº °³¼ö
+correct_prediction = tf.equal(prediction, tf.argmax(Y_one_hot, 1))  # ì‹¤ì œ Yì™€ ì˜ˆì¸¡ì´ ë§ì€ ê°œìˆ˜
 accuracy  = tf.reduce_mean(tf.cast(correct_prediction, dtype = tf.float32))
 
 # 2) Feed data and run graph (operation) using sess.run(op)
@@ -545,23 +545,23 @@ with tf.Session() as sess:                       # launch graph in a session
 		if step % 100 == 0:
 			loss, acc = sess.run([cost, accuracy], feed_dict = {X: x_data, Y: y_data})
 			print("Step: {:5}\tCost: {:.3f}\tAccuracy: {:.2%}".format(step, loss, acc))
-	        # Step:  1800	Cost: 0.322	Accuracy: 93.07%  ÇüÅÂ·Î Ãâ·Â
+	        # Step:  1800	Cost: 0.322	Accuracy: 93.07%  í˜•íƒœë¡œ ì¶œë ¥
 
 	pred = sess.run(prediction, feed_dict = {X: x_data, Y: y_data})
 	# y_data: (N,1) = flatten => (N, ) matches pred.shape
-	for p, y in zip(pred, y_data.flatten()):  # flatten ¾²¸é [ [1], [2] ] -> [1, 2] Ã³·³ µÅ (RÀÇ unlist ºñ½Á)
+	for p, y in zip(pred, y_data.flatten()):  # flatten ì“°ë©´ [ [1], [2] ] -> [1, 2] ì²˜ëŸ¼ ë¼ (Rì˜ unlist ë¹„ìŠ·)
 		print("[{}] Prediction: {} True Y: {}".format(p == int(y), p, int(y)))
 		# [True] Prediction: 4 True Y: 4
-		# [False] Prediction: 0 True Y: 2  ÇüÅÂ·Î Ãâ·Â
+		# [False] Prediction: 0 True Y: 2  í˜•íƒœë¡œ ì¶œë ¥
 		
-	# (Âü°í) ÀÌÀü binary logistic classifier ¿¡¼­ÀÇ Accuracy report ÄÚµå
-	#hypo, ¿¹ÃøÇÑ°ª, accuracy(¿¹ÃøÇÑ °á°ú°¡ ½ÇÁ¦ Y¶û ¸î °³ °°³ª) 
+	# (ì°¸ê³ ) ì´ì „ binary logistic classifier ì—ì„œì˜ Accuracy report ì½”ë“œ
+	#hypo, ì˜ˆì¸¡í•œê°’, accuracy(ì˜ˆì¸¡í•œ ê²°ê³¼ê°€ ì‹¤ì œ Yë‘ ëª‡ ê°œ ê°™ë‚˜) 
 	#hy, c, a = sess.run([h, predicted, accuracy], feed_dict = {X: x_data, Y: y_data})
 	#print("\nHypothesis: ", hy,"\Correct: ", c,"\Accuracy: ", a)
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-06-2-softmax_zoo_classifier.py
 
 
