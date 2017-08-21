@@ -3,7 +3,7 @@
 
 ## 09-1. Neural Net for XOR
 
-<br />
+<br />  
 #### XOR
 
 | X1 | X2 | Y  |
