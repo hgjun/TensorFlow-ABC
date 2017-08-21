@@ -3,7 +3,7 @@
 
 ## 09-1. Neural Net for XOR
 
-
+<br />
 #### XOR
 
 | X1 | X2 | Y  |
@@ -299,14 +299,14 @@ with tf.Session() as sess:                       # launch graph in a session
 이전 실행 결과 (2 Layers)
 ```
 ('\nHypothesis: ', array([[ 0.01338218], [ 0.98166394], [ 0.98809403], [ 0.01135799]], dtype=float32), 
- '\\Correct: '   , array([[ 0.],         [ 1.],         [ 1.],         [ 0.]], dtype=float32), 
+ '\\Correct: '   , array([[ 0.],         [ 1.],         [ 1.],         [ 0.]]        , dtype=float32), 
  '\\Accuracy: '  , 1.0)
 ```
 
 실행 결과 (4 Layers)
 ```
 ('\nHypothesis: ', array([[ 0.00159741], [ 0.99867946], [ 0.9982515 ], [ 0.0015059 ]], dtype=float32), 
- '\\Correct: '   , array([[ 0.],         [ 1.],         [ 1.],         [ 0.]], dtype=float32), 
+ '\\Correct: '   , array([[ 0.],         [ 1.],         [ 1.],         [ 0.]]        , dtype=float32), 
  '\\Accuracy: '  , 1.0)
 ```
 
