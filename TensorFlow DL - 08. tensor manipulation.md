@@ -6,8 +6,9 @@
 <br />
 참조 링크  
 https://www.youtube.com/watch?v=ZYX0FaqUeN4&feature=youtu.be  
-https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-08-tensor_manipulation.ipynb
+https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-08-tensor_manipulation.ipynb  
 
+<br />
 연습용 시작 코드
 
 ```
