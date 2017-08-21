@@ -79,7 +79,6 @@ plt.show()
   - W = W + ΔW = W - ηΔE[W]
   - ηΔE[W]: - 기호 때문에 기울기 음방향이면 W 늘려줌, 양방향이면 줄여줌
 
-<br />  
 ```
 import tensorflow as tf
 
