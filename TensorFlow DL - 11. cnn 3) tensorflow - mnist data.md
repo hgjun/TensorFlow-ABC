@@ -19,19 +19,19 @@ https://www.youtube.com/watch?v=pQ9Y9ZagZBk&feature=youtu.be
 ### 1. Simple CNN
 
 ```
-      input layer
+      Input Layer
            ↓
-   Convolutional layer1
+   Convolutional Layer 1
            ↓
-     Pooling layer1
+     Pooling Layer 1
            ↓
-   Convolutional layer2 
+   Convolutional Layer 2 
            ↓
-     Pooling layer2
+     Pooling Layer 2
            ↓
-   Fully Connected layer
+   Fully Connected Layer
            ↓
-      Output layer
+      Output Layer
 ```
 
 
@@ -39,7 +39,7 @@ https://www.youtube.com/watch?v=pQ9Y9ZagZBk&feature=youtu.be
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-#### 1.1 Conv Layer1
+#### 1.1 Conv Layer 1
 
 ```
 # MNIST data image of shape 28 * 28 = 784
@@ -90,7 +90,7 @@ Tensor("MaxPool:0", shape=(?, 14, 14, 32), dtype=float32)
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-#### 1.2 Conv Layer2
+#### 1.2 Conv Layer 2
 
 ```
 # 입력 이미지 (conv layer1 로부터 받은) shape 는 (?, 14 x 14 x 32)
@@ -427,27 +427,27 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-11-1-mnist_cnn.p
 
 정확도 더 높아져
 ```
-      input layer
+      Input Layer
            ↓
-   Convolutional layer1
+   Convolutional Layer 1
            ↓
-     Pooling layer1
+     Pooling Layer 1
            ↓
-   Convolutional layer2 
+   Convolutional Layer 2 
            ↓
-     Pooling layer2
+     Pooling Layer 2
            ↓
-   Convolutional layer3
+   Convolutional Layer 3
            ↓
-     Pooling layer3
+     Pooling Layer 3
            ↓
-  Locally Connected layer
+  Locally Connected Layer
            ↓
-   Fully Connected layer1
+  Fully Connected Layer 1
            ↓
-   Fully Connected layer2
+  Fully Connected Layer 2
            ↓
-      Output layer
+      Output Layer
 ```
 
 
