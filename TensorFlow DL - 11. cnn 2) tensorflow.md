@@ -104,7 +104,7 @@ Simple Convolution Layer
 
 출력  
 2 x 2 x 1  (공식의해, (3 - 2)/1 + 1 = 2)  
-TensorFlow 는 알아서 계산
+TensorFlow 는 알아서 계산해줌
 
 ```
 %matplotlib inline
