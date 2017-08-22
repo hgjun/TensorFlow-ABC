@@ -791,9 +791,9 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-11-4-mnist_cnn_l
 
 Deep & WIde CNN 구축해보기
 
-좀더 복잡한 데이터 사용해보기
-CIFAR 10
-ImageNet
+좀더 복잡한 데이터 사용해보기  
+CIFAR 10,  
+ImageNet,  
 ...
 
 
