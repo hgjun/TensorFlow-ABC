@@ -144,7 +144,7 @@ batch: 데이터개수
 | 4 | 5 | 6 |
 | 7 | 8 | 9 |
 
-<br />
+
 #### Filter  
 
 (h, w, color, n) 2, 2, 1, 1  
@@ -156,7 +156,7 @@ Padding: VALID or SAME
 |---|---|
 | 1 | 1 |
 
-<br />
+
 #### Convolution layer 에서 실행되는 Convolution operation 과정
 ```
 1)
