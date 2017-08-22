@@ -149,7 +149,7 @@ layer 1개, 2개, ... 원하는 대로 쌓아서 사용하면되
 -> 굉장히 다양한 구조 가능
 
 
-#### Fast forward [Resnet, He et al.]
+#### Fast Forward [Resnet, He et al.]
 
 두단 앞으로 보내
 
@@ -175,7 +175,7 @@ x2 [ ] - [ ] - [ ]  ┼-- [ ] - [ ] -  y-hat
 x3 [ ] - [ ] - [ ]  ┘          
 ```
 
-#### Recurrent network (RNN)
+#### Recurrent Network (RNN)
 
 앞 뿐만 아니라, 옆으로도 나가자
 ```
