@@ -106,6 +106,7 @@ cell = tf.contrib.rnn.BasicLSTMCell(num_units=hidden_size, state_is_tuple=True)
 
 <br />
 --> MultiRNNCell 사용  
+
 쌓을 레이어 개수만 알려주면돼!
 
 ```
@@ -161,32 +162,34 @@ RNN도 FC 붙여주자
 
 그런데 sequence 개수 만큼 FC 만들어줄 필요는 없어
 
-
+```
 [ ] [ ] [ ] ... [ ]
-
-여러개여도 사실 rnn은 하나의 rnn이야 
+```
+여러개여도 사실 rnn은 하나의 rnn이야   
 -> 한 개의 softmax layer 쓰도록 reshape 활용하자!
 
+```
+    o        o        o        o 
+   outputs = tf.reshape(outputs, [batch_size, seq_length, num_classes])
+     ↖     ↑       ↑      ↗     ==> (2) RNN 용으로 다시 reshape
+          [FC: softmax]
+                 ↑
+                 o
+                 o
+                 o
+                 o
+   x_for_fc = tf.reshape(outputs, [-1, hidden_size])  ==> (1) softmax 용으로 reshape
+     ↗      ↑       ↑      ↖  
+    o        o        o        o 
+    ↑        ↑        ↑        ↑
+   [  ] ->  [  ] ->  [  ] ->  [  ] -> 
+    ↑        ↑        ↑        ↑ 
+    x        x        x        x
+```
 
- o        o        o        o 
-outputs = tf.reshape(outputs, [batch_size, seq_length, num_classes])
-  ↖     ↑       ↑      ↗     ==> (2) RNN 용으로 다시 reshape
-       [FC: softmax]
-              ↑
-              o
-              o
-              o
-              o
-x_for_fc = tf.reshape(outputs, [-1, hidden_size])  ==> (1) softmax 용으로 reshape
-  ↗      ↑       ↑      ↖  
- o        o        o        o 
- ↑       ↑       ↑       ↑
-[  ] ->  [  ] ->  [  ] ->  [  ] -> 
- ↑       ↑       ↑       ↑ 
- x        x        x        x
-
-
-(예) softmax 사용
+(예)  
+Softmax 사용
+```
 X_for_softmax = tf.reshape(outputs, [-1, hidden_size])
 
 # [hidden_size, num_classes]: 입력사이즈, 출력사이즈(one-hot)
@@ -210,15 +213,16 @@ outputs = tf.contrib.layers.fully_connected(X_for_fc, num_classes, activation_fn
 
 # reshape out for sequence_loss
 outputs = tf.reshape(outputs, [batch_size, sequence_length, num_classes])
+```
 
 
-
-
+<br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
 ### Loss
 
+```
 # All weights are 1 (equal weights)
 weights = tf.ones([batch_size, sequence_length])
 
@@ -229,17 +233,16 @@ sequence_loss = tf.contrib.seq2seq.sequence_loss(
     logits=outputs, targets=Y, weights=weights)
 mean_loss = tf.reduce_mean(sequence_loss)
 train_op = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(mean_loss)
+```
 
 
-
-
-
+<br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Training ans print results
+### Training ans Results
 
-
+```
 sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 
@@ -262,14 +265,16 @@ for j, result in enumerate(results):
         print(''.join([char_set[t] for t in index]), end='')
     else:
         print(char_set[index[-1]], end='')
+```
 
 
-
+<br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
 ### 전체 코드
 
+```
 from __future__ import print_function  # python3 print 사용 가능
 
 import tensorflow as tf
@@ -418,9 +423,10 @@ with tf.Session() as sess:
             print(''.join([char_set[t] for t in index]), end='')
         else:
             print(char_set[index[-1]], end='')
-
+```
 
 결과 (500번 loop)
+```
 0 if you wan -> f you want
 1 f you want ->  you want 
 2  you want  -> you want t
@@ -433,9 +439,10 @@ with tf.Session() as sess:
 499 168 tf the sea 0.228806
 499 169   the sea. 0.228806
 g you want to build a ship, don't drum up people together to collect wood and don't assign them tasks and work, but rather teach them to long for the endless immensity of the sea.
-
+```
 
 결과 (3000번 loop)
+```
 0 if you wan -> f you want
 1 f you want ->  you want 
 2  you want  -> you want t
@@ -448,23 +455,24 @@ g you want to build a ship, don't drum up people together to collect wood and do
 2999 168 tf the sea 0.228531
 2999 169   the sea. 0.228531
 p you want to build a ship, don't drum up people together to collect wood and don't assign them tasks and work, but rather teach them to long for the endless immensity of the sea.
+```
 
 
-
+<br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
 ### 추가로 해보기
 
-세익스피어 글 학습 RNN -> 글 생성
+- 세익스피어 글 학습 RNN -> 글 생성
 
-리눅스 코드 학습 RNN -> 소스 코드 생성 (주석, indent, ..)
+- 리눅스 코드 학습 RNN -> 소스 코드 생성 (주석, indent, ..)
 
+- 더 복잡하게 구현된 것 참조하기  
 
-더 복잡하게 구현된 것 보기
-https://github.com/sherjilozair/char-rnn-tensorflow 
-
-https://github.com/hunkim/word-rnn-tensorflow 
+  - https://github.com/sherjilozair/char-rnn-tensorflow 
+  
+  - https://github.com/hunkim/word-rnn-tensorflow 
 
 
 
