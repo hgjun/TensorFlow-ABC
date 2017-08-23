@@ -6,9 +6,9 @@
 Recurrent Neural Network
 
 
-<br />
+<br />  
 참조 링크  
-https://www.youtube.com/watch?v=-SHPG_KMUkQ&feature=youtu.be
+https://www.youtube.com/watch?v=-SHPG_KMUkQ&feature=youtu.be  
 
 <br /><br />
 <!--------------------------------------------------------------->
