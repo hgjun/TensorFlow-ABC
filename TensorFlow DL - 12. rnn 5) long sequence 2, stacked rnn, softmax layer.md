@@ -107,6 +107,7 @@ cell = tf.contrib.rnn.BasicLSTMCell(num_units=hidden_size, state_is_tuple=True)
 <br />
 --> MultiRNNCell 사용  
 쌓을 레이어 개수만 알려주면돼!
+
 ```
 cell = rnn.BasicLSTMCell(hidden_size, state_is_tuple=True)
 cell = rnn.MultiRNNCell([cell] * 2, state_is_tuple=True)  # 2 layers
@@ -114,6 +115,7 @@ cell = rnn.MultiRNNCell([cell] * 2, state_is_tuple=True)  # 2 layers
 
 <br />
 cell 생성 함수 쓰면 더 편리
+
 ```
 def lstm_cell():
     cell = rnn.BasicLSTMCell(hidden_size, state_is_tuple=True)
@@ -124,6 +126,7 @@ multi_cells = rnn.MultiRNNCell([lstm_cell() for _ in range(2)], state_is_tuple=T
 
 <br />
 Stacked RNN 사용한 코드
+
 ```
 X = tf.placeholder(tf.int32, [None, sequence_length]) # X data
 Y = tf.placeholder(tf.int32, [None, sequence_length]) # Y label
