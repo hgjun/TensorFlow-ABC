@@ -1,7 +1,7 @@
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-## 04-1. Multi-variable linear regression
+## 04-1. Multi-Variable Linear Regression
 
 x 많으면 더 잘 예측할 수 있을 것
 
@@ -358,6 +358,8 @@ key, value = reader.read(filename_queue)
 3) decoder 정의  
 record_defaults = [[0.], [0.], [0.], [0.]] # 읽을 데이터 타입 정의 (여기선 float)  
 xy = tf.decode_csv(value, record_defaults=record_defaults)
+
+<br />
 
 다음과 같은 형태로 사용
 ```
