@@ -3,6 +3,8 @@
 
 ## 03. Minimizing Cost
 
+<br />
+
 참조 링크  
 https://www.youtube.com/watch?v=Y0EF9VqRuEA&feature=youtu.be
 
@@ -11,7 +13,7 @@ https://www.youtube.com/watch?v=Y0EF9VqRuEA&feature=youtu.be
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Cost function plot
+### Cost Function Plot
 
 ```
 import tensorflow as tf
@@ -78,6 +80,8 @@ plt.show()
 - gradient descent
   - W = W + ΔW = W - ηΔE[W]
   - ηΔE[W]: - 기호 때문에 기울기 음방향이면 W 늘려줌, 양방향이면 줄여줌
+
+<br />
 
 ```
 import tensorflow as tf
