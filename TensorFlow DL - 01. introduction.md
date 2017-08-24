@@ -9,7 +9,7 @@
 
 ### Hello world
 
-docker tensorflow 시작
+Docker TensorFlow 시작
 
 ```
 docker start tftest
@@ -167,7 +167,7 @@ Tensor는 일종의 array [[4]]
 | n    | [D0, D1,.., Dn-1] | n-D  | a tensor with shape   [D0, D1,.., Dn-1]                     |
 <br />
 
-example
+Example
 ```
 3                                # rank 0 tensor: shape [ ]      scalar 
 [1., 2., 3.]                     # rank 1 tensor: shape [3]      vector 
