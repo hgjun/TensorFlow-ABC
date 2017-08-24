@@ -47,6 +47,11 @@ print(sess.run(hello))
 ### TF Mechanics (3 steps)
 
 TF 알고리즘은 크게 3단계로 구현
+
+1) Build a graph using tf operations  
+2) Feed data and run graph (operation) using sess.run( )  
+3) Update variables in the graph (and return values)  
+
 ```
 import tensorflow as tf
 
