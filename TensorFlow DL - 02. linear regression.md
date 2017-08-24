@@ -5,13 +5,14 @@
 
 H(x) = Wx + b
 
-¸ÅÆ®¸¯½º »ç¿ëÇÑ ¼ö½ÄÀº X ¸ÕÀú ½á 
+ë§¤íŠ¸ë¦­ìŠ¤ ì‚¬ìš©í•œ ìˆ˜ì‹ì€ X ë¨¼ì € ì¨ 
 
 H(X) = XW + b
 
 cost(W, b) = min squared error
 
-ÂüÁ¶ ¸µÅ©  
+<br />
+ì°¸ì¡° ë§í¬  
 https://www.youtube.com/watch?v=mQGwjrStQgg&feature=youtu.be  
 https://ko.wikipedia.org/wiki/%EC%84%A0%ED%98%95_%ED%9A%8C%EA%B7%80  
 http://pythonkim.tistory.com/13
@@ -29,18 +30,18 @@ import tensorflow as tf
 # H(x) = Wx + b
 
 # training data X, Y
-# placeholder »ç¿ë °¡´É
+# placeholder ì‚¬ìš© ê°€ëŠ¥
 x_tr = [1, 2, 3]
 y_tr = [1, 2, 3]
 
 # variable 
-# ±âÁ¸ º¯¼ö¿Í ´Ù¸¥ °³³äÀÓ (trainable variable)
-# Æ®·¹ÀÌ´×À» ÅëÇØ ÇĞ½ÀµÇ¾ßÇÒ ÆÄ¶ó¸ŞÅÍ
-# Æ®·¹ÀÌ´×ÀÇ °á°ú°¡ ´ã±æ °÷À¸·Î tf ÀÇÇØ °è¼Ó Æ®·¹ÀÌ´×(modified)µÇ´Â ³ëµå
-# variable Àº ÃÊ±âÈ­ÇØ¼­ »ç¿ëÇØ¾ß ÇÔ (tf.global_variables_initializer())
-# placeholder´Â ÀÏÁ¾ÀÇ input, variableÀº Áß°£ °úÁ¤¿¡ ÇÊ¿äÇÑ º¯¼ö
+# ê¸°ì¡´ ë³€ìˆ˜ì™€ ë‹¤ë¥¸ ê°œë…ì„ (trainable variable)
+# íŠ¸ë ˆì´ë‹ì„ í†µí•´ í•™ìŠµë˜ì•¼í•  íŒŒë¼ë©”í„°
+# íŠ¸ë ˆì´ë‹ì˜ ê²°ê³¼ê°€ ë‹´ê¸¸ ê³³ìœ¼ë¡œ tf ì˜í•´ ê³„ì† íŠ¸ë ˆì´ë‹(modified)ë˜ëŠ” ë…¸ë“œ
+# variable ì€ ì´ˆê¸°í™”í•´ì„œ ì‚¬ìš©í•´ì•¼ í•¨ (tf.global_variables_initializer())
+# placeholderëŠ” ì¼ì¢…ì˜ input, variableì€ ì¤‘ê°„ ê³¼ì •ì— í•„ìš”í•œ ë³€ìˆ˜
 
-# °ª ¾ÆÁ÷ ¸ğ¸£´Ï ·£´ıÇÑ °ªÀ¸·Î ÁÜ shape ´Â Å©±â 1ÀÎ º¤ÅÍ·Î ([1])
+# ê°’ ì•„ì§ ëª¨ë¥´ë‹ˆ ëœë¤í•œ ê°’ìœ¼ë¡œ ì¤Œ shape ëŠ” í¬ê¸° 1ì¸ ë²¡í„°ë¡œ ([1])
 W = tf.Variable(tf.random_normal([1]), name='weight')
 b = tf.Variable(tf.random_normal([1]), name='bias')
 
@@ -50,10 +51,10 @@ h = x_tr * W + b
 # cost(loss) function
 # t = [1., 2., 3., 4.]
 # print(sess.run(tf.reduce_mean(t)))
-# reduce_mean °á°ú´Â Æò±Õ: 2.5
+# reduce_mean ê²°ê³¼ëŠ” í‰ê· : 2.5
 m = len(x_tr)
 cost = tf.reduce_sum(tf.pow(h - Y, 2))/(m)
-# cost = tf.reduce_mean(tf.square(h - y_tr)) ÇÑ ÁÙ¿¡ °¡´É
+# cost = tf.reduce_mean(tf.square(h - y_tr)) í•œ ì¤„ì— ê°€ëŠ¥
 
 
 # Min cost: GradientDescent
@@ -74,15 +75,16 @@ sess.run(tf.global_variables_initializer())
 for step in range(2001):
 	sess.run(train)
 	if step % 20 == 0:
-		print(step, sess.run(cost), sess.run(W), sess.run(b)) # °¢ ³ëµå cost, W, b °ª Ãâ·Â
+		print(step, sess.run(cost), sess.run(W), sess.run(b)) # ê° ë…¸ë“œ cost, W, b ê°’ ì¶œë ¥
 
 
-# Graph ¿¹Á¦
+# Graph ì˜ˆì œ
 (train) - (cost) - (y_tr)
                  - (h)    -  (x_tr * W + b)
 ```
 
-ÂüÁ¶ ¸µÅ©  
+<br />
+ì°¸ì¡° ë§í¬  
 http://jrmeyer.github.io/misc/tf-graph.png  
 http://3months.tistory.com/68  
 http://www.popit.kr/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/  
@@ -92,7 +94,7 @@ http://www.popit.kr/%ED%85%90%EC%84%9C%ED%94%8C%EB%A1%9C%EC%9A%B0tensorflow-%EC%
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Linear Regression: Placehloders »ç¿ë
+### Linear Regression: Placehloders ì‚¬ìš©
 
 ```
 import tensorflow as tf
@@ -101,13 +103,13 @@ import tensorflow as tf
 # training data X, Y
 # tensor will be fed using feed_dict
 # http://stackoverflow.com/questions/36693740
-# shape=[None] ¾Æ¹« ÇüÅÂ³ª ÀÔ·Â °¡´ÉÇÏ´Ù
+# shape=[None] ì•„ë¬´ í˜•íƒœë‚˜ ì…ë ¥ ê°€ëŠ¥í•˜ë‹¤
 X = tf.placeholder(tf.float32, shape=[None])    # x_tr = [1, 2, 3]
 Y = tf.placeholder(tf.float32, shape=[None])    # y_tr = [1, 2, 3]
 
 
 # variables
-# tf.random_normal([1], seed=1) ·Î ³­¼ö ÀÏÁ¤ÇÑ °ª °è¼Ó »ç¿ë °¡´É
+# tf.random_normal([1], seed=1) ë¡œ ë‚œìˆ˜ ì¼ì •í•œ ê°’ ê³„ì† ì‚¬ìš© ê°€ëŠ¥
 W = tf.Variable(tf.random_normal([1]), name='weight')
 b = tf.Variable(tf.random_normal([1]), name='bias')
 
@@ -132,18 +134,18 @@ sess.run(tf.global_variables_initializer())
 
 # 3) Update variables in the graph (and return values)
 
-# placehode ·Î ÇĞ½Àµ¥ÀÌÅÍ x, y¸¦ ¿øÇÏ´Â´ë·Î ÀÔ·ÂÇØÁÙ ¼ö ÀÖ´Ù 
-# ¿¾³¯ ¿¹Á¦ print(sess.run(adder_node, feed_dict={a: 3, b: 4.5}))
+# placehode ë¡œ í•™ìŠµë°ì´í„° x, yë¥¼ ì›í•˜ëŠ”ëŒ€ë¡œ ì…ë ¥í•´ì¤„ ìˆ˜ ìˆë‹¤ 
+# ì˜›ë‚  ì˜ˆì œ print(sess.run(adder_node, feed_dict={a: 3, b: 4.5}))
 
 # fit the line
 for step in range(2001):
-	# run ¿©·¯°³ ÇÑ¹ø¿¡ ½ÇÇà °¡´É
-	# train À¸·Î ³ª¿Â value´Â ÇÊ¿ä¾ø¾î¼­ _ ·Î »ı·«
+	# run ì—¬ëŸ¬ê°œ í•œë²ˆì— ì‹¤í–‰ ê°€ëŠ¥
+	# train ìœ¼ë¡œ ë‚˜ì˜¨ valueëŠ” í•„ìš”ì—†ì–´ì„œ _ ë¡œ ìƒëµ
 	cost_val, W_val, b_val, _ = \
 		sess.run([cost, W, b, train], feed_dict={X: [1, 2, 3, 4, 5], Y: [2.1, 3.1, 4.1, 5.1, 6.1]})
-		# W = 1, b = 1.1 ·Î ¼ö·ÅµÉ °Í
+		# W = 1, b = 1.1 ë¡œ ìˆ˜ë ´ë  ê²ƒ
 	if step % 20 == 0:
-		print(step, cost_val, W_val, b_val) # °¢ ³ëµå cost, W, b °ª Ãâ·Â
+		print(step, cost_val, W_val, b_val) # ê° ë…¸ë“œ cost, W, b ê°’ ì¶œë ¥
 
 # Testing the model
 print(sess.run(h, feed_dict={X: [5]}))
