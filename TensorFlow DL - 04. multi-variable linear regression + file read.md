@@ -3,11 +3,11 @@
 
 ## 04-1. Multi-variable linear regression
 
-x ¸¹À¸¸é ´õ Àß ¿¹ÃøÇÒ ¼ö ÀÖÀ» °Í
+x ë§ìœ¼ë©´ ë” ì˜ ì˜ˆì¸¡í•  ìˆ˜ ìˆì„ ê²ƒ
 
 H(x1, x2, x3) = x1w1 + x2w2 + x3w3
 
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://www.youtube.com/watch?v=fZUV3xjoZSM&feature=youtu.be
 
 
@@ -15,7 +15,7 @@ https://www.youtube.com/watch?v=fZUV3xjoZSM&feature=youtu.be
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Multi-variable linear regression
+### Multi-Variable Linear Regression
 
 ```
 import tensorflow as tf
@@ -62,7 +62,8 @@ for step in range(2001):
 		print(step, "Cost: ", cost_val, "\bPrediction:\n", h_val)
 ```
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
+
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-04-1-multi_variable_linear_regression.py  
 
 
@@ -70,7 +71,7 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-04-1-multi_varia
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Multi-variable linear regression using matrix
+### Multi-Variable Linear Regression Using Matrix
 
 H(X) = XW + b
 
@@ -123,7 +124,8 @@ for step in range(2001):
 		print(step, "Cost: ", cost_val, "\bPrediction:\n", h_val)
 ```
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
+
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-04-2-multi_variable_matmul_linear_regression.py
 
 
@@ -131,9 +133,11 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-04-2-multi_varia
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-## 04-2. Loading data from file
+## 04-2. Loading Data From File
 
-ÂüÁ¶ ¸µÅ©  
+<br />
+ì°¸ì¡° ë§í¬
+
 https://www.youtube.com/watch?v=o2q4QNnoShY&feature=youtu.be
 
 
@@ -162,8 +166,8 @@ print(nums)
 
 ### Numpy
 
-Array¸¦ index, slice, iterate Ã³·³ Ã³¸® °¡´É  
-: ´ë½Å ... »ç¿ë °¡´É
+Arrayë¥¼ index, slice, iterate ì²˜ëŸ¼ ì²˜ë¦¬ ê°€ëŠ¥  
+: ëŒ€ì‹  ... ì‚¬ìš© ê°€ëŠ¥
 
 ```
 import numpy as np
@@ -202,7 +206,7 @@ print(b[-1,...])   # row [3 - 1), col [0, 4) = [ 9 10 11 12]
 print(b[0:2, :])   # row [0, 2) , col [0, 4) = [[1 2 3 4]  [5 6 7 8]]
 
 
-# ndarray »ı¼º + ÃÊ±âÈ­
+# ndarray ìƒì„± + ì´ˆê¸°í™”
 c = np.random.randn(2,3)
 print(c.ndim, c.shape, c.dtype, c)
 
@@ -218,15 +222,15 @@ np.arange(15))
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Loading data from file
+### Loading Data From File
 
-Å×½ºÆ® µ¥ÀÌÅÍ ÆÄÀÏÀº  
-C:\Users\(»ç¿ëÀÚ °èÁ¤ÀÌ¸§)\Docker\work ¿¡ ÀúÀåÇØ¼­ »ç¿ë
+í…ŒìŠ¤íŠ¸ ë°ì´í„° íŒŒì¼ì€  
+C:\Users\(ì‚¬ìš©ì ê³„ì •ì´ë¦„)\Docker\work ì— ì €ì¥í•´ì„œ ì‚¬ìš©
 
-data01_test_score.csv ÆÄÀÏ ³»¿ë
+data01_test_score.csv íŒŒì¼ ë‚´ìš©
 
 ```
-# x1: EXAM1 Á¡¼ö, x2: EXAM2 Á¡¼ö, x3: EXAM3 Á¡¼ö, y: FINAL Á¡¼ö
+# x1: EXAM1 ì ìˆ˜, x2: EXAM2 ì ìˆ˜, x3: EXAM3 ì ìˆ˜, y: FINAL ì ìˆ˜
 
 73,80,75,152
 93,88,93,185
@@ -236,7 +240,7 @@ data01_test_score.csv ÆÄÀÏ ³»¿ë
 53,46,55,101
 ```
 
-python ÄÚµå
+python ì½”ë“œ
 ```
 import numpy as np
 
@@ -259,7 +263,7 @@ y_data2 = xy[:, -1]
 print(y_data2.ndim, y_data2.shape, y_data2, len(y_data2))
 ```
 
-½ÇÇà °á°ú
+ì‹¤í–‰ ê²°ê³¼
 ```
 (2, (6, 3), array([[  73.,   80.,   75.],
        [  93.,   88.,   93.],
@@ -281,7 +285,7 @@ print(y_data2.ndim, y_data2.shape, y_data2, len(y_data2))
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Multi-variable linear regression with csv
+### Multi-Variable Linear Regression with CSV
 
 ```
 import tensorflow as tf
@@ -339,33 +343,33 @@ print("other score test2 ", sess.run(h, feed_dict={X: [[60, 70, 110], [90, 100, 
 
 ### Thread and Queues
 
-ÆÄÀÏ Ä¿¼­ ¸Ş¸ğ¸®¿¡ ÇÑ ¹ø¿¡ ¾È ¿Ã¶ó°¡´Â °æ¿ì  
-¿©·¯°³ ÆÄÀÏ ÀĞ¾î¼­ Ã³¸®ÇÒ °æ¿ì  
+íŒŒì¼ ì»¤ì„œ ë©”ëª¨ë¦¬ì— í•œ ë²ˆì— ì•ˆ ì˜¬ë¼ê°€ëŠ” ê²½ìš°  
+ì—¬ëŸ¬ê°œ íŒŒì¼ ì½ì–´ì„œ ì²˜ë¦¬í•  ê²½ìš°  
 
-files -> (random shuffle) -> filename queue ¿¡ ½×¾Æ -> (Reader .. -> Decoder ..) -> Example queue (¿©±â¼­ ²¨³» ½á)
+files -> (random shuffle) -> filename queue ì— ìŒ“ì•„ -> (Reader .. -> Decoder ..) -> Example queue (ì—¬ê¸°ì„œ êº¼ë‚´ ì¨)
 
-1) ÀĞÀ» ÆÄÀÏ ¸®½ºÆ®  
+1) ì½ì„ íŒŒì¼ ë¦¬ìŠ¤íŠ¸  
 filename_queue = tf.train.string_input_producer(['a.csv', 'b.csv', ...], shuffle=False, name='filenamequeue')
 
-2) ÆÄÀÏ ÀĞ¾î¿Ã reader Á¤ÀÇ  
+2) íŒŒì¼ ì½ì–´ì˜¬ reader ì •ì˜  
 reader = tf.TextLineReader()  
 key, value = reader.read(filename_queue)
 
-3) decoder Á¤ÀÇ  
-record_defaults = [[0.], [0.], [0.], [0.]] # ÀĞÀ» µ¥ÀÌÅÍ Å¸ÀÔ Á¤ÀÇ (¿©±â¼± float)  
+3) decoder ì •ì˜  
+record_defaults = [[0.], [0.], [0.], [0.]] # ì½ì„ ë°ì´í„° íƒ€ì… ì •ì˜ (ì—¬ê¸°ì„  float)  
 xy = tf.decode_csv(value, record_defaults=record_defaults)
 
-´ÙÀ½°ú °°Àº ÇüÅÂ·Î »ç¿ë
+ë‹¤ìŒê³¼ ê°™ì€ í˜•íƒœë¡œ ì‚¬ìš©
 ```
 # tf.train.batch
 # collect batches of csv in
-train_x_batch, train_y_batch = tf.train.batch([xy[0:-1], xy[-1:]], batch_size=10) # x_data, y_data, 10°³¾¿ °¡Á®¿Í
+train_x_batch, train_y_batch = tf.train.batch([xy[0:-1], xy[-1:]], batch_size=10) # x_data, y_data, 10ê°œì”© ê°€ì ¸ì™€
 
 sess = tf.Session()
 
 ...
 
-# filename queue °ü¸®
+# filename queue ê´€ë¦¬
 coord = tf.train.Coordinator()
 threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
@@ -378,7 +382,7 @@ coord.join(threads)
 ```
 <br />
 
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://www.tensorflow.org/programmers_guide/threading_and_queues#queuerunner
 
 
@@ -386,7 +390,7 @@ https://www.tensorflow.org/programmers_guide/threading_and_queues#queuerunner
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Multi-variable linear regression with Queues
+### Multi-Variable Linear Regression with Queues
 
 
 ```
@@ -461,7 +465,8 @@ print("other score test2 ", sess.run(h, feed_dict={X: [[60, 70, 110], [90, 100, 
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
+
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-04-4-tf_reader_linear_regression.py
 
 
@@ -471,15 +476,15 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-04-4-tf_reader_l
 
 ### shuffle_batch
 
-tf.train.batch ´ë½Å ¹èÄ¡ ¼ø¼­ ¼¯°í ½ÍÀ» ¶§ »ç¿ë
+tf.train.batch ëŒ€ì‹  ë°°ì¹˜ ìˆœì„œ ì„ê³  ì‹¶ì„ ë•Œ ì‚¬ìš©
 
 ```
-# ·£´ıÇÏ°Ô »ùÇÃÇÒ ¹öÆÛ Å©±â
-# Å©¸é Àß ¼¯ÀÌÁö¸¸ ´À¸®°í ¸Ş¸ğ¸® ¸¹ÀÌ »ç¿ëÇÔ
+# ëœë¤í•˜ê²Œ ìƒ˜í”Œí•  ë²„í¼ í¬ê¸°
+# í¬ë©´ ì˜ ì„ì´ì§€ë§Œ ëŠë¦¬ê³  ë©”ëª¨ë¦¬ ë§ì´ ì‚¬ìš©í•¨
 min_after_dequeue = 10000
 
-# capacity´Â min_after_dequeue º¸´Ù Ä¿¾ßÇÔ, prefetchÇÒ ÃÖ´ë Å©±â °áÁ¤
-# º¸Åë min_after_dequeue + (thread °³¼ö + ÀÛÀº safety margin) * batch_size
+# capacityëŠ” min_after_dequeue ë³´ë‹¤ ì»¤ì•¼í•¨, prefetchí•  ìµœëŒ€ í¬ê¸° ê²°ì •
+# ë³´í†µ min_after_dequeue + (thread ê°œìˆ˜ + ì‘ì€ safety margin) * batch_size
 capacity = min_after_dequeue + 3 * batch_size
 
 example_batch, label_batch = tf.train.shuffle_batch(
