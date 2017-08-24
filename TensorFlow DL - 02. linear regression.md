@@ -11,7 +11,7 @@ H(X) = XW + b
 
 cost(W, b) = min squared error
 
-<br />
+<br />  
 참조 링크  
 https://www.youtube.com/watch?v=mQGwjrStQgg&feature=youtu.be  
 https://ko.wikipedia.org/wiki/%EC%84%A0%ED%98%95_%ED%9A%8C%EA%B7%80  
@@ -84,6 +84,7 @@ for step in range(2001):
 ```
 
 <br />
+
 참조 링크  
 http://jrmeyer.github.io/misc/tf-graph.png  
 http://3months.tistory.com/68  
