@@ -1,51 +1,51 @@
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Docker TensorFlow ¼³Ä¡
+### Docker TensorFlow ì„¤ì¹˜
 
-µµÄ¿ ÅÍ¹Ì³Î ¿ÀÇÂ  
+ë„ì»¤ í„°ë¯¸ë„ ì˜¤í”ˆ  
 
 ```
 docker pull tensorflow/tensorflow
 ```
 
-¼³Ä¡ ¿Ï·á ÈÄ ´ÙÀ½ ¸í·É ½ÇÇà
+ì„¤ì¹˜ ì™„ë£Œ í›„ ë‹¤ìŒ ëª…ë ¹ ì‹¤í–‰
 ```
 sudo docker run -it -p 8888:8888 -p 6006:6006 -v /c/Users/Administrator/Docker/work:/home/testu/work --name tftest tensorflow/tensorflow
 ```
-8888 Æ÷Æ®´Â jupyter ¿ë  
-6006 Æ÷Æ®´Â ³ªÁß¿¡ TensorBoard ¿¡¼­ »ç¿ë
+8888 í¬íŠ¸ëŠ” Jupyter ìš© Â 
+6006 í¬íŠ¸ëŠ” TensorBoard ìš©
 
 
-½ÇÇàÈÄ ³ª¿À´Â ¸Ş½ÃÁö
+ì‹¤í–‰í›„ ë‚˜ì˜¤ëŠ” ë©”ì‹œì§€
 ```
 Copy/paste this URL into your browser when you connect for the first time,
     to login with a token:
         http://localhost:8888/?token=6053d1ff7f865ada23adc7938c28fc7733a25f2f06b1dbc6
 ```
 
-ºê¶ó¿ìÀú·Î 192.168.99.100:8888 Á¢¼Ó  
-ÅäÅ«°ª "6053d1ff7f865ada23adc7938c28fc7733a25f2f06b1dbc6" À¸·Î ·Î±×ÀÎ
-/notebooks/ Æú´õ°¡ ±âº» Æú´õ·Î ³ª¿È
+ë¸Œë¼ìš°ì €ë¡œ 192.168.99.100:8888 ì ‘ì†  
+í† í°ê°’ "6053d1ff7f865ada23adc7938c28fc7733a25f2f06b1dbc6" ìœ¼ë¡œ ë¡œê·¸ì¸
+/notebooks/ í´ë”ê°€ ê¸°ë³¸ í´ë”ë¡œ ë‚˜ì˜´
 
 
-ÂüÁ¶ ¸µÅ©  
-À©µµ¿ì µµÄ¿ TF¼³Ä¡ (http://solarisailab.com/archives/384)  
-µµÄ¿ TF¼³Ä¡ (http://bryan7.tistory.com/763)
+ì°¸ì¡° ë§í¬  
+ìœˆë„ìš° ë„ì»¤ TFì„¤ì¹˜ (http://solarisailab.com/archives/384)  
+ë„ì»¤ TFì„¤ì¹˜ (http://bryan7.tistory.com/763)
 
 
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### sudo ¼³Ä¡
+### sudo ì„¤ì¹˜
 
-¿­¸° µµÄ¿ ÅÍ¹Ì³Î¿¡¼­ tftest ÄÁÅ×ÀÌ³Ê ÁßÁö
+ì—´ë¦° ë„ì»¤ í„°ë¯¸ë„ì—ì„œ tftest ì»¨í…Œì´ë„ˆ ì¤‘ì§€
 ```
 ctrl+c
 ```
 
-tftest Àç½ÇÇà ¹× ¿ìºĞÅõ ¹öÀü È®ÀÎ
+tftest ì¬ì‹¤í–‰ ë° ìš°ë¶„íˆ¬ ë²„ì „ í™•ì¸
 
 ```
 docker start tftest
@@ -55,7 +55,7 @@ cat /etc/issue
 cat /etc/*release
 ```
 
-sudo ¼³Ä¡
+sudo ì„¤ì¹˜
 ```
 apt-get update
 apt-get install sudo
@@ -63,28 +63,28 @@ sudo
 cat /etc/sudoers
 ```
 
-ÂüÁ¶ ¸µÅ©  
-¸®´ª½º sudo »ç¿ëÀÚ Ãß°¡ (http://webdir.tistory.com/255)  
-¿ìºĞÅõ °èÁ¤¿¡ sudo ±ÇÇÑ ºÎ¿© (http://sarghis.com/blog/856/)
+ì°¸ì¡° ë§í¬  
+ë¦¬ëˆ…ìŠ¤ sudo ì‚¬ìš©ì ì¶”ê°€ (http://webdir.tistory.com/255)  
+ìš°ë¶„íˆ¬ ê³„ì •ì— sudo ê¶Œí•œ ë¶€ì—¬ (http://sarghis.com/blog/856/)
 
 
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### vim ¼³Ä¡
+### vim ì„¤ì¹˜
 
 
 ```
 apt-get install vim
 ```
 
-¼³Ä¡ ¿Ï·á ÈÄ È¯°æ ¼³Á¤
+ì„¤ì¹˜ ì™„ë£Œ í›„ í™˜ê²½ ì„¤ì •
 ```
 vim ~/.vimrc
 ```
 
-i (ÇöÀç Ä¿¼­ À§Ä¡¿¡ ±ÛÀÚ ÀÔ·Â) ´©¸£°í ´ÙÀ½ ÄÚµå ÀÔ·Â
+i (í˜„ì¬ ì»¤ì„œ ìœ„ì¹˜ì— ê¸€ì ì…ë ¥) ëˆ„ë¥´ê³  ë‹¤ìŒ ì½”ë“œ ì…ë ¥
 ```
 set number
 set ai
@@ -108,20 +108,20 @@ set nowrap
 set wmnu
 syntax on
 ```
-esc ´©¸£°í
-:wq (¼öÁ¤ Àû¿ëÇÏ°í ³ª¿È) ¾²°í ³ª¿È
+esc ëˆ„ë¥´ê³ 
+:wq (ìˆ˜ì • ì ìš©í•˜ê³  ë‚˜ì˜´) ì“°ê³  ë‚˜ì˜´
 
 
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Jupyter ÆĞ½º¿öµå ·Î±×ÀÎ
+### Jupyter íŒ¨ìŠ¤ì›Œë“œ ë¡œê·¸ì¸
 
-ÅäÅ« Á¤º¸ ´ë½Å ÆĞ½º¿öµå·Î ·Î±×ÀÎÇÏ±â
+í† í° ì •ë³´ ëŒ€ì‹  íŒ¨ìŠ¤ì›Œë“œë¡œ ë¡œê·¸ì¸í•˜ê¸°
 
 
-docker tftest ½ÇÇà
+docker tftest ì‹¤í–‰
 
 ```
 docker start tftest
@@ -131,7 +131,7 @@ jupyter notebook --help
 ```
 
 
-root/.jupyter ·Î °¡¼­ ipython ½ÇÇàÇÏ±â
+root/.jupyter ë¡œ ê°€ì„œ ipython ì‹¤í–‰í•˜ê¸°
 ```
 cd /root/.jupyter/
 ls -als
@@ -139,7 +139,7 @@ ls -als
 ipython
 ```
 
-´ÙÀ½ ÄÚµå ÀÔ·Â
+ë‹¤ìŒ ì½”ë“œ ì…ë ¥
 ```
 In [1]: from IPython.lib import passwd
 In [2]: passwd()
@@ -150,12 +150,12 @@ In [3]: ctrl+d
 Do you really want to exit ([y]/n)? y
 ```
 
-À§¿¡¼­ ³ª¿Â Å°°ªÀ» jupyter ¼³Á¤ ÆÄÀÏ¿¡ º¹»ç  
+ìœ„ì—ì„œ ë‚˜ì˜¨ í‚¤ê°’ì„ jupyter ì„¤ì • íŒŒì¼ì— ë³µì‚¬  
 (/root/.jupyter/jupyter_notebook_config.py)
 ```
 vim jupyter_notebook_config.py
 ```
-vim À¸·Î ¿­¸é ´ÙÀ½ ÄÚµå ºÎºĞÀÖ¾î
+vim ìœ¼ë¡œ ì—´ë©´ ë‹¤ìŒ ì½”ë“œ ë¶€ë¶„ìˆì–´
 ```
 ...
 c.NotebookApp.ip = '*'
@@ -164,12 +164,12 @@ c.NotebookApp.open_browser = False
 c.MultiKernelManager.default_kernel_name = 'python2'
 ...
 ```
-À§ ÄÚµå ¹Ø¿¡ ¾Æ·¡ ¶óÀÎ Ãß°¡ (Å°°ªÀº ipython ¿¡¼­ ¹ŞÀº Å° °ª Àû¿ë)
+ìœ„ ì½”ë“œ ë°‘ì— ì•„ë˜ ë¼ì¸ ì¶”ê°€ (í‚¤ê°’ì€ ipython ì—ì„œ ë°›ì€ í‚¤ ê°’ ì ìš©)
 ```
 c.NotebookApp.password = 'sha1:fff18f9598e2:b4b9d8a4b7c957ef57ae5a3562144722484ec5d6'
 ```
 
-tftest Àç½ÇÇà
+tftest ì¬ì‹¤í–‰
 ```
 exit
 docker stop tftest
@@ -177,24 +177,24 @@ docker start tftest
 docker exec -it tftest bash
 ```
 
-ºê¶ó¿ìÀú¿¡¼­ jupyter ¿­¸é ÆĞ½º¿öµå ÀÔ·ÂÀ¸·Î ¹Ù²ñ  
+ë¸Œë¼ìš°ì €ì—ì„œ jupyter ì—´ë©´ íŒ¨ìŠ¤ì›Œë“œ ì…ë ¥ìœ¼ë¡œ ë°”ë€œ  
 http://192.168.99.100:8888/login
 
 <br />
-ÂüÁ¶ ¸µÅ©  
-ÆĞ½º¿öµå·Î ·Î±×ÀÎ (https://financedata.github.io/posts/jupyter-notebook-authentication.html#4.-jupyter-notebook-%EC%8B%A4%ED%96%89)
+ì°¸ì¡° ë§í¬  
+íŒ¨ìŠ¤ì›Œë“œë¡œ ë¡œê·¸ì¸ (https://financedata.github.io/posts/jupyter-notebook-authentication.html#4.-jupyter-notebook-%EC%8B%A4%ED%96%89)
 
 
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Virtualenv ¼³Ä¡ (Optional)
+### Virtualenv ì„¤ì¹˜ (Optional)
 
 https://beomi.github.io/2016/12/28/HowToSetup-Virtualenv-VirtualenvWrapper/
 
 
-ÅÍ¹Ì³Î
+í„°ë¯¸ë„
 ```
 docker start tftest bash
 docker exec -it tftest bash
@@ -203,114 +203,114 @@ cd /
 which python
 python -V
 
-pip·Î ±ò¸° ¸ğµç ÆĞÅ°ÁöÀÇ ¹öÀü ¸®½ºÆ®È®ÀÎ
+pipë¡œ ê¹”ë¦° ëª¨ë“  íŒ¨í‚¤ì§€ì˜ ë²„ì „ ë¦¬ìŠ¤íŠ¸í™•ì¸
 pip freeze
 
 tensorflow==1.2.1
 ```
 
-UbuntuÀÇ °æ¿ì¿¡´Â 14¹öÀü ±âÁØÀ¸·Î Python2¿Í Python3ÀÌ ±âº»ÀûÀ¸·Î ¼³Ä¡µÇ¾îÀÖ½À´Ï´Ù.  
-ÇÏÁö¸¸ pip/pip3ÀÌ ¼³Ä¡µÇ¾îÀÖÁö ¾ÊÀ» ¼ö ÀÖ±â ¶§¹®¿¡ python-pip³ª python3-pip¸¦ ¼³Ä¡ÇØ¾ß ÇÕ´Ï´Ù.
+Ubuntuì˜ ê²½ìš°ì—ëŠ” 14ë²„ì „ ê¸°ì¤€ìœ¼ë¡œ Python2ì™€ Python3ì´ ê¸°ë³¸ì ìœ¼ë¡œ ì„¤ì¹˜ë˜ì–´ìˆìŠµë‹ˆë‹¤.  
+í•˜ì§€ë§Œ pip/pip3ì´ ì„¤ì¹˜ë˜ì–´ìˆì§€ ì•Šì„ ìˆ˜ ìˆê¸° ë•Œë¬¸ì— python-pipë‚˜ python3-pipë¥¼ ì„¤ì¹˜í•´ì•¼ í•©ë‹ˆë‹¤.
 
 ```
-# APT¸¦ ¾÷µ¥ÀÌÆ®
+# APTë¥¼ ì—…ë°ì´íŠ¸
 sudo apt-get update && apt-get upgrade -y
-# Python2¸¦ ÀÌ¿ëÇÒ °æ¿ì
+# Python2ë¥¼ ì´ìš©í•  ê²½ìš°
 sudo apt-get install python-pip python-dev
-# Python3À» ÀÌ¿ëÇÒ °æ¿ì
+# Python3ì„ ì´ìš©í•  ê²½ìš°
 sudo apt-get install python3-pip python3-dev
 
-pip ¼³Ä¡ È®ÀÎ
-# Python2 pipÀÇ °æ¿ì
+pip ì„¤ì¹˜ í™•ì¸
+# Python2 pipì˜ ê²½ìš°
 pip -V
 pip install --upgrade pip
 
-# Python3 pipÀÇ °æ¿ì
+# Python3 pipì˜ ê²½ìš°
 pip3 -V
 pip3 install --upgrade pip
 ```
-ÀÌÁ¦ pip¼³Ä¡°¡ ¿Ï·áµÇ¾úÀ¸¹Ç·Î Virtualenv¿Í VirtualenvWrapper¸¦ ¼³Ä¡ÇØº¸°Ú½À´Ï´Ù.
+ì´ì œ pipì„¤ì¹˜ê°€ ì™„ë£Œë˜ì—ˆìœ¼ë¯€ë¡œ Virtualenvì™€ VirtualenvWrapperë¥¼ ì„¤ì¹˜í•´ë³´ê² ìŠµë‹ˆë‹¤.
 ```
-# Python2ÀÇ °æ¿ì
+# Python2ì˜ ê²½ìš°
 pip install virtualenv virtualenvwrapper
-# Python3ÀÇ °æ¿ì
+# Python3ì˜ ê²½ìš°
 pip3 install virtualenv virtualenvwrapper
 ```
  
 
 #### Virtualenv
 
-$ virtualenv --python=ÆÄÀÌ½ã¹öÀü °¡»óÈ¯°æÀÌ¸§
+$ virtualenv --python=íŒŒì´ì¬ë²„ì „ ê°€ìƒí™˜ê²½ì´ë¦„
 ```
 cd /home/testu
 virtualenv --python=python3.5 py3_env
 virtualenv --python=python2.7 test_env2
 ```
-ÇöÀç Æú´õ³»¿¡(/home/testu)
- py3_env, test_env2 Æú´õ »ı¼ºµÊ
+í˜„ì¬ í´ë”ë‚´ì—(/home/testu)
+ py3_env, test_env2 í´ë” ìƒì„±ë¨
 
-Python3ÀÌ ¼³Ä¡µÈ °¡»óÈ¯°æ py3_env·Î ÁøÀÔÇÑ °æ¿ì
+Python3ì´ ì„¤ì¹˜ëœ ê°€ìƒí™˜ê²½ py3_envë¡œ ì§„ì…í•œ ê²½ìš°
 ```
 source py3_env/bin/activate
 python -V
 deactivate
 ```
 
-Áö¿ì±â
+ì§€ìš°ê¸°
 ```
 rm -R py3_env
 rm -R test_env2
 ```
 
-#### VirtualenvWrapper ¼³Á¤
-VirtualEnv¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â source¸¦ ÀÌ¿ëÇØ °¡»óÈ¯°æ¿¡ ÁøÀÔÇÕ´Ï´Ù.
-±×·¯³ª, ÀÌ ÁøÀÔ ¹æ¹ıÀº °¡»óÈ¯°æÀÌ ¼³Ä¡µÈ À§Ä¡·Î ÀÌµ¿ÇØ¾ßµÇ´Â °Í »Ó ¾Æ´Ï¶ó 
-°¡»óÈ¯°æÀÌ ¾î´À Æú´õ¿¡ ÀÖ´ÂÁö ÀÏÀÏÀÌ »ç¿ëÀÚ°¡ ±â¾ïÇØ¾ß ÇÏ´Â ´ÜÁ¡ÀÌ ÀÖ½À´Ï´Ù.
-ÀÌ¸¦ º¸¿ÏÇÏ±â À§ÇØ VirtualenvWrapper¸¦ »ç¿ëÇÕ´Ï´Ù.
-¶ÇÇÑ, VirtualenvWrapper¸¦ »ç¿ëÇÒ °æ¿ì ÅÍ¹Ì³ÎÀÌ ÇöÀç À§Ä¡ÇÑ °æ·Î¿Í °ü°è¾øÀÌ 
-°¡»óÈ¯°æÀ» È°¼ºÈ­ÇÒ ¼ö ÀÖ´Ù´Â ÀåÁ¡ÀÌ ÀÖ½À´Ï´Ù.
+#### VirtualenvWrapper ì„¤ì •
+VirtualEnvë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” sourceë¥¼ ì´ìš©í•´ ê°€ìƒí™˜ê²½ì— ì§„ì…í•©ë‹ˆë‹¤.
+ê·¸ëŸ¬ë‚˜, ì´ ì§„ì… ë°©ë²•ì€ ê°€ìƒí™˜ê²½ì´ ì„¤ì¹˜ëœ ìœ„ì¹˜ë¡œ ì´ë™í•´ì•¼ë˜ëŠ” ê²ƒ ë¿ ì•„ë‹ˆë¼ 
+ê°€ìƒí™˜ê²½ì´ ì–´ëŠ í´ë”ì— ìˆëŠ”ì§€ ì¼ì¼ì´ ì‚¬ìš©ìê°€ ê¸°ì–µí•´ì•¼ í•˜ëŠ” ë‹¨ì ì´ ìˆìŠµë‹ˆë‹¤.
+ì´ë¥¼ ë³´ì™„í•˜ê¸° ìœ„í•´ VirtualenvWrapperë¥¼ ì‚¬ìš©í•©ë‹ˆë‹¤.
+ë˜í•œ, VirtualenvWrapperë¥¼ ì‚¬ìš©í•  ê²½ìš° í„°ë¯¸ë„ì´ í˜„ì¬ ìœ„ì¹˜í•œ ê²½ë¡œì™€ ê´€ê³„ì—†ì´ 
+ê°€ìƒí™˜ê²½ì„ í™œì„±í™”í•  ìˆ˜ ìˆë‹¤ëŠ” ì¥ì ì´ ìˆìŠµë‹ˆë‹¤.
 
-VirtualenvWrapper´Â .bashrc³ª .zshrc¿¡ ¾à°£ÀÇ ¼³Á¤°úÁ¤À» °ÅÃÄ¾ß ÇÕ´Ï´Ù.
+VirtualenvWrapperëŠ” .bashrcë‚˜ .zshrcì— ì•½ê°„ì˜ ì„¤ì •ê³¼ì •ì„ ê±°ì³ì•¼ í•©ë‹ˆë‹¤.
 
-¿ì¼± È¨ µğ·ºÅä¸®·Î ÀÌµ¿
-°¡»óÈ¯°æÀÌ µé¾î°¥ Æú´õ .virtualenvs¸¦ ¸¸µé¾îÁÖ¼¼¿ä.
+ìš°ì„  í™ˆ ë””ë ‰í† ë¦¬ë¡œ ì´ë™
+ê°€ìƒí™˜ê²½ì´ ë“¤ì–´ê°ˆ í´ë” .virtualenvsë¥¼ ë§Œë“¤ì–´ì£¼ì„¸ìš”.
 ```
 cd ~
 mkdir ~/.virtualenvs
 
 vim ~/.bashrc
 ```
-ÆÄÀÏ Á¦ÀÏ ¸¶Áö¸·¿¡ ¾Æ·¡ ÄÚµå¸¦ º¹»çÇØ ºÙ¿©³Ö¾îÁİ½Ã´Ù. (ÆÄÀÏÀÌ ¾ø´Ù¸é ¸¸µé¾î »ç¿ëÇÏ½Ã¸é µË´Ï´Ù.)
+íŒŒì¼ ì œì¼ ë§ˆì§€ë§‰ì— ì•„ë˜ ì½”ë“œë¥¼ ë³µì‚¬í•´ ë¶™ì—¬ë„£ì–´ì¤ì‹œë‹¤. (íŒŒì¼ì´ ì—†ë‹¤ë©´ ë§Œë“¤ì–´ ì‚¬ìš©í•˜ì‹œë©´ ë©ë‹ˆë‹¤.)
 ```
 # python virtualenv settings
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON="$(command \which python3)" # Usage of python3
 source /usr/local/bin/virtualenvwrapper.sh
 ```
-ÆÄÀÏ °æ·Î ´Ù¸¥°æ¿ì
-find /usr -name virtualenvwrapper.sh ·Î Ã£¾Æ¼­ ¼öÁ¤
+íŒŒì¼ ê²½ë¡œ ë‹¤ë¥¸ê²½ìš°
+find /usr -name virtualenvwrapper.sh ë¡œ ì°¾ì•„ì„œ ìˆ˜ì •
 
 ```
 source ~/.bashrc
 ```
 
-#### VirtualenvWrapper ¸í·É¾îµé
+#### VirtualenvWrapper ëª…ë ¹ì–´ë“¤
 
-°¡»óÈ¯°æ ¸¸µé±â  
-$ mkvirtualenv °¡»óÈ¯°æÀÌ¸§
+ê°€ìƒí™˜ê²½ ë§Œë“¤ê¸°  
+$ mkvirtualenv ê°€ìƒí™˜ê²½ì´ë¦„
 ```
 mkvirtualenv test_env3
 mkvirtualenv --python=`which python3` env3
 
 virtualenv --python=python2.7 test_env2
 ```
-/root/.virtualenvs ¾È¿¡ test_env3, env3 Æú´õ »ı¼ºµÊ
+/root/.virtualenvs ì•ˆì— test_env3, env3 í´ë” ìƒì„±ë¨
 
 
-°¡»óÈ¯°æ ÁøÀÔÇÏ±â + °¡»óÈ¯°æ ¸ñ·Ï º¸±â
-$ workon °¡»óÈ¯°æÀÌ¸§
-°¡»óÈ¯°æÀ¸·Î ÁøÀÔ½Ã ¾Õ¿¡ (°¡»óÈ¯°æÀÌ¸§)ÀÌ ºÙ½À´Ï´Ù.
-(°¡»óÈ¯°æÀÌ¸§) $
+ê°€ìƒí™˜ê²½ ì§„ì…í•˜ê¸° + ê°€ìƒí™˜ê²½ ëª©ë¡ ë³´ê¸°
+$ workon ê°€ìƒí™˜ê²½ì´ë¦„
+ê°€ìƒí™˜ê²½ìœ¼ë¡œ ì§„ì…ì‹œ ì•ì— (ê°€ìƒí™˜ê²½ì´ë¦„)ì´ ë¶™ìŠµë‹ˆë‹¤.
+(ê°€ìƒí™˜ê²½ì´ë¦„) $
 
 ```
 workon env3
@@ -318,12 +318,12 @@ python
 import tensorflow as tf
 ```
 
-°¡»óÈ¯°æ ºüÁ®³ª¿À±â
+ê°€ìƒí™˜ê²½ ë¹ ì ¸ë‚˜ì˜¤ê¸°
 ```
 deactivate
 ```
 
-ÀÌ°Å º¸°í ¼³Ä¡ÇØº¸ÀÚ  
+ì´ê±° ë³´ê³  ì„¤ì¹˜í•´ë³´ì  
 https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/get_started/os_setup.html
 
 
@@ -331,7 +331,7 @@ https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/get_started/os_s
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### Git ¼³Ä¡
+### Git ì„¤ì¹˜
 
 ```
 sudo add-apt-repository ppa:git-core/ppa
@@ -342,7 +342,7 @@ git version
 
 cd /home/testu
 ```
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 http://thisblogbusy.tistory.com/entry/%EC%9A%B0%EB%B6%84%ED%88%AC-1604%EC%97%90%EC%84%9C-GIT-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
 
 
@@ -350,25 +350,25 @@ http://thisblogbusy.tistory.com/entry/%EC%9A%B0%EB%B6%84%ED%88%AC-1604%EC%97%90%
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-### ÄÁÅ×ÀÌ³Ê ¹é¾÷
+### ì»¨í…Œì´ë„ˆ ë°±ì—…
 
 
-tftest ÄÁÅ×ÀÌ³Ê°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+tftest ì»¨í…Œì´ë„ˆê°€ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸
 ```
 sudo docker ps -a | grep tftest
 ```
 
-tftest ÄÁÅ×ÀÌ³Ê¸¦  'tf_test' ¶ó´Â ÀÌ¹ÌÁö·Î ÀúÀå
+tftest ì»¨í…Œì´ë„ˆë¥¼  'tf_test' ë¼ëŠ” ì´ë¯¸ì§€ë¡œ ì €ì¥
 ```
 sudo docker commit tftest tf_test
 ```
 
-tftest_backup.tar ¶ó´Â ÀÌ¸§À¸·Î ¹é¾÷
+tftest_backup.tar ë¼ëŠ” ì´ë¦„ìœ¼ë¡œ ë°±ì—…
 ```
 sudo docker save tftest_backup > /c/Users/Administrator/Docker/tf_test.tar
 ```
 
-º¹¿ø½Ã
+ë³µì›ì‹œ
 ```
 docker load < /c/Users/Administrator/Docker/tf_test.tar
 
@@ -378,6 +378,6 @@ docker start tftest
 docker exec -it tftest bash
 ```
 
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 http://digndig.kr/docker/709/
 
