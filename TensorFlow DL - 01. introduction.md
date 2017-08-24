@@ -1,7 +1,7 @@
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
-## Lab01. Introduction
+## 01. Introduction
 
 <br />
 <!--------------------------------------------------------------->
@@ -9,14 +9,14 @@
 
 ### Hello world
 
-docker tensorflow ½ÃÀÛ
+docker tensorflow ì‹œì‘
 
 ```
 docker start tftest
 docker exec -it tftest bash
 ```
 
-jupyter ½ÇÇà
+Jupyter ì‹¤í–‰
 ```
 import tensorflow as tf
 tf.__version__
@@ -38,15 +38,15 @@ print(sess.run(hello))
 #b'Hello, TensorFlow.'
 #b: Bytes literals
 ```
- 
+
+
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
 ### TF Mechanics (3 steps)
 
-
-TF ¾Ë°í¸®ÁòÀº Å©°Ô 3´Ü°è·Î ±¸Çö
+TF ì•Œê³ ë¦¬ì¦˜ì€ í¬ê²Œ 3ë‹¨ê³„ë¡œ êµ¬í˜„
 ```
 import tensorflow as tf
 
@@ -70,14 +70,15 @@ print("sess.run(node3): ", sess.run(node3))
 # 3) Update variables in the graph (and return values)
 ```
 
+
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
 ### Placeholder
 
-constant ´ë½Å ±×·¡ÇÁ ½ÇÇà ´Ü°è¿¡¼­ °ª ´øÁú¼ö ÀÖÀ½
-placeholder ÀÎ node »ç¿ë
+constant ëŒ€ì‹  ê·¸ë˜í”„ ì‹¤í–‰ ë‹¨ê³„ì—ì„œ ê°’ ë˜ì§ˆìˆ˜ ìˆìŒ  
+placeholder ì¸ node ì‚¬ìš©
 
 ```
 import tensorflow as tf
@@ -88,7 +89,7 @@ b = tf.placeholder(tf.float32)
 adder_node = a + b # or adder_node = tf.add(a, b)
 
 # 2) Feed data and run graph (operation) using sess.run(op, feed_dict={x: x_data})
-# feed_dict ·Î node a, b¿¡ °ª ³Ñ°ÜÁÜ
+# feed_dict ë¡œ node a, bì— ê°’ ë„˜ê²¨ì¤Œ
 print(sess.run(adder_node, feed_dict={a: 3, b: 4.5}))
 print(sess.run(adder_node, feed_dict={a: [1, 3], b: [2,4]}))
 # 7.5
@@ -97,14 +98,15 @@ print(sess.run(adder_node, feed_dict={a: [1, 3], b: [2,4]}))
 # 3) Update variables in the graph (and return values)
 ```
 
+
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
 ### Operations
 
-assign(), add() [[1]] µîÀÇ tf operations [[2]] µéÀº expression graphÀÇ ÀÏÁ¾ [[3]]  
-sess.run() À¸·Î ½ÇÇàÇÏ±âÀü¿¡´Â ½ÇÁ¦ ¿¬»ê ¼öÇàÇÏÁö ¾ÊÀ½
+assign(), add() [[1]] ë“±ì˜ tf operations [[2]] ë“¤ì€ expression graphì˜ ì¼ì¢… [[3]]  
+sess.run() ìœ¼ë¡œ ì‹¤í–‰í•˜ê¸°ì „ì—ëŠ” ì‹¤ì œ ì—°ì‚° ìˆ˜í–‰í•˜ì§€ ì•ŠìŒ
 
 ```
 # Define constants
@@ -133,16 +135,17 @@ print(sess.run(tf.div(a, b))) # >> [1 3] tf.mod(a, b) # >> [1 0]
 [3]: https://codeonweb.com/entry/5f15bf8e-d704-49e0-909a-db4450433b74 "https://codeonweb.com/entry/5f15bf8e-d704-49e0-909a-db4450433b74"
 
 
+
 <br /><br />
 <!--------------------------------------------------------------->
 <!--------------------------------------------------------------->
 
 ### Everything is Tensor
 
-Tensor´Â ÀÏÁ¾ÀÇ array [[4]]  
+TensorëŠ” ì¼ì¢…ì˜ array [[4]]  
 <br />
 
-1) Rank: ¸î Â÷¿ø array ÀÎ°¡
+1) Rank: ëª‡ ì°¨ì› array ì¸ê°€
 
 | Rank | Math entity                       | Python example                                        |
 | :--: | :-------------------------------- | :---------------------------------------------------- |
@@ -153,7 +156,7 @@ Tensor´Â ÀÏÁ¾ÀÇ array [[4]]
 | n    | n-Tensor (you get the idea)       |                                                       |
 <br />
 
-2) Shape: ¸î °³ element ÀÖ³ª (tf °³¹ß½Ã shape ¼³°è Áß¿ä)
+2) Shape: ëª‡ ê°œ element ìˆë‚˜ (tf ê°œë°œì‹œ shape ì„¤ê³„ ì¤‘ìš”)
 
 | Rank | Shape             | Dim. | Example                                                     |
 | :--: | :---------------- | :--: | :---------------------------------------------------------- |
@@ -173,10 +176,10 @@ example
 ```
 <br />
 
-3) Types: µ¥ÀÌÅÍÅ¸ÀÔ
+3) Types: ë°ì´í„°íƒ€ì…
 
-´ëºÎºĞ tf.float32 »ç¿ë [[5]]  
-Á¤¼ö´Â tf.int32 ÁÖ·Î »ç¿ë 
+ëŒ€ë¶€ë¶„ tf.float32 ì‚¬ìš© [[5]]  
+ì •ìˆ˜ëŠ” tf.int32 ì£¼ë¡œ ì‚¬ìš© 
 
 ```
 tf.float32
