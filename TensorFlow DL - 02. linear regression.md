@@ -54,7 +54,7 @@ h = x_tr * W + b
 # print(sess.run(tf.reduce_mean(t)))
 # reduce_mean 결과는 평균: 2.5
 m = len(x_tr)
-cost = tf.reduce_sum(tf.pow(h - Y, 2))/(m)
+cost = tf.reduce_sum(tf.pow(h - y_tr, 2))/(m)
 # cost = tf.reduce_mean(tf.square(h - y_tr)) 한 줄에 가능
 
 
