@@ -312,21 +312,21 @@ os.getcwd()
 from tensorflow.examples.tutorials.mnist import input_data 
 
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)   
-(처음 읽을 때 웹에서 다운 받으므로 시간 조금 걸림)
+# (처음 읽을 때 웹에서 다운 받으므로 시간 조금 걸림)
 
 
 
-읽어올 때 바로 one-hot 으로 처리
+# 읽어올 때 바로 one-hot 으로 처리
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True) 
 
-이미지 하나 28 x 28 x 1 image = 총 784 픽셀
+# 이미지 하나 28 x 28 x 1 image = 총 784 픽셀
 X = tf.placeholder(tf.float32, [None, 784])
 
-Y 0 ~ 9의 숫자 이걸 one-hot 인코딩해서 10 class 가 될 것
+# Y 0 ~ 9의 숫자 이걸 one-hot 인코딩해서 10 class 가 될 것
 Y = tf.placeholder(tf.float32, [None, 10]) 
 
-메모리에 데이터 다 올리면 NG
-배치로 (예, 100개씩 올려서) 사용
+# 메모리에 데이터 다 올리면 NG
+# 배치로 (예, 100개씩 올려서) 사용
 batch_size = 100
 batch_xs, batch_ys = mnist.train.next_batch(batch_size)
 ```
