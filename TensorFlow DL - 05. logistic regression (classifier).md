@@ -3,21 +3,21 @@
 
 ## 05. Logistic (Regression) Classification
 
-Linear regressionÀº ±âÁ¸ µ¥ÀÌÅÍ·Î »õ·Î¿î µ¥ÀÌÅÍ x ¿¡ ´ëÇØ y°¡ ¹«¾ùÀÏÁö ¼ıÀÚ¸¦ ¿¹Ãø   
+Linear regressionì€ ê¸°ì¡´ ë°ì´í„°ë¡œ ìƒˆë¡œìš´ ë°ì´í„° x ì— ëŒ€í•´ yê°€ ë¬´ì—‡ì¼ì§€ ìˆ«ìë¥¼ ì˜ˆì¸¡   
 
-Logistic classificationÀº binary classification  -> 
-µÑ Áß ÇÏ³ª·Î ºĞ·ùÇÏ´Â°Í  
-
-
+Logistic classificationì€ binary classification  -> 
+ë‘˜ ì¤‘ í•˜ë‚˜ë¡œ ë¶„ë¥˜í•˜ëŠ”ê²ƒ  
 
 
-(¿¹)
-- Spam detection: ½ºÆÔÀÏÁö ¾Æ´ÒÁö
-- ÆäÀÌ½ººÏ ÃßÃµ: º¸ÀÏÁö ¾Æ´ÒÁö
-- ½Å¿ëÄ«µå ÀÌ»ó °áÁ¦: legitimate Å¸´ç / fraud
 
 
-ÂüÁ¶ ¸µÅ©  
+(ì˜ˆ)
+- Spam detection: ìŠ¤íŒ¸ì¼ì§€ ì•„ë‹ì§€
+- í˜ì´ìŠ¤ë¶ ì¶”ì²œ: ë³´ì¼ì§€ ì•„ë‹ì§€
+- ì‹ ìš©ì¹´ë“œ ì´ìƒ ê²°ì œ: legitimate íƒ€ë‹¹ / fraud
+
+
+ì°¸ì¡° ë§í¬  
 https://www.youtube.com/watch?v=PIjno6paszY&feature=youtu.be  
 http://gnujoow.github.io/ml/2016/01/29/ML3-Logistic-Regression/  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-05-1-logistic_regression.py  
@@ -30,17 +30,17 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-05-2-logistic_re
 
 ### Binary classification
 
-Binary classificationÀ» À§ÇØ Logistic regressionÀ» ÇÏ°í  
-Logistic regressionÀ» À§ÇØ Logistic function (sigmoid function)À» ¾´´Ù
+Binary classificationì„ ìœ„í•´ Logistic regressionì„ í•˜ê³   
+Logistic regressionì„ ìœ„í•´ Logistic function (sigmoid function)ì„ ì“´ë‹¤
 
-¿Ö³ÄÇÏ¸é  
-Binary classificationÀ» À§ÇØ Linear regression »ç¿ëÇÏ¸é »ı±â´Â ¹®Á¦µé ÀÖ±â ¶§¹®
+ì™œëƒí•˜ë©´  
+Binary classificationì„ ìœ„í•´ Linear regression ì‚¬ìš©í•˜ë©´ ìƒê¸°ëŠ” ë¬¸ì œë“¤ ìˆê¸° ë•Œë¬¸
 
 
-1. ¹®Á¦Á¡ 1  
+1. ë¬¸ì œì  1  
 
 ```
-(¿¹) x °øºÎ½Ã°£, y ½ÃÇèÇÕ°İ¿©ºÎ
+(ì˜ˆ) x ê³µë¶€ì‹œê°„, y ì‹œí—˜í•©ê²©ì—¬ë¶€
 x y
 1 0
 2 0
@@ -50,29 +50,29 @@ x y
 7 1
 ```
 
-h(x) = wx = ( 0.5 * 1/4 ) w ·Î ÇĞ½ÀµÇ¾ú´Ù¸é (x=4 ÀÏ¶§ y=0.5 µÇ°Ô ³ª¿È)
+h(x) = wx = ( 0.5 * 1/4 ) w ë¡œ í•™ìŠµë˜ì—ˆë‹¤ë©´ (x=4 ì¼ë•Œ y=0.5 ë˜ê²Œ ë‚˜ì˜´)
 
-±×·³ ±¸ÇÑ hypothesis·Î´Â  
-x = 1,2,3 ÀÌ¸é 0.5 ÀÌÇÏ´Ï±î false ¿¹Ãø  
-y = 4,5,6 ÀÌ¸é 0.5 ÀÌ»óÀÌ´Ï true ¿¹Ãø  
+ê·¸ëŸ¼ êµ¬í•œ hypothesisë¡œëŠ”  
+x = 1,2,3 ì´ë©´ 0.5 ì´í•˜ë‹ˆê¹Œ false ì˜ˆì¸¡  
+y = 4,5,6 ì´ë©´ 0.5 ì´ìƒì´ë‹ˆ true ì˜ˆì¸¡  
 
-±×·¯³ª training data¿¡   
-x = 100 ÀÌ»óÀÇ °ª,  y = 1 ÀÌ ÀÖ´Ù¸é  
-±â¿ï±â »ó´çÈ÷ ¿Ï¸¸ÇØÁú °Í (0.5 * 1/4) º¸´Ù ÀÛÀº°ª  
-±×·¡¼­ ¸¸¾à x= 7ÀÏ¶§ y=0.5 µÇ°Ô ³ª¿À¸é  
-½ÇÁ¦´Â x=5,6 ÀÏ ¶§ y=1 true ³ª¿Í¾ß ÇÏ³ª  
-0.5 º¸´Ù ÀÛÀº°ª µÇ¼­ false ¶ó´Â Àß¸øµÈ ¿¹ÃøÀ» ÇÏ°Ô µÇ  
+ê·¸ëŸ¬ë‚˜ training dataì—   
+x = 100 ì´ìƒì˜ ê°’,  y = 1 ì´ ìˆë‹¤ë©´  
+ê¸°ìš¸ê¸° ìƒë‹¹íˆ ì™„ë§Œí•´ì§ˆ ê²ƒ (0.5 * 1/4) ë³´ë‹¤ ì‘ì€ê°’  
+ê·¸ë˜ì„œ ë§Œì•½ x= 7ì¼ë•Œ y=0.5 ë˜ê²Œ ë‚˜ì˜¤ë©´  
+ì‹¤ì œëŠ” x=5,6 ì¼ ë•Œ y=1 true ë‚˜ì™€ì•¼ í•˜ë‚˜  
+0.5 ë³´ë‹¤ ì‘ì€ê°’ ë˜ì„œ false ë¼ëŠ” ì˜ëª»ëœ ì˜ˆì¸¡ì„ í•˜ê²Œ ë˜  
 
-2. ¹®Á¦Á¡ 2  
+2. ë¬¸ì œì  2  
 
 ```
-(¿¹) h(x) = 0.5x ¸é
- x = 100 ÀÏ ¶§ y = 50 (1º¸´Ù ¸Å¿ì Å«°ª ³ª¿Í)
+(ì˜ˆ) h(x) = 0.5x ë©´
+ x = 100 ì¼ ë•Œ y = 50 (1ë³´ë‹¤ ë§¤ìš° í°ê°’ ë‚˜ì™€)
 ```
 
-binary classification ¿¡¼± y´Â 0 or 1ÀÇ °ªÀ» ¸¸µé¾î Áà¾ßÇÑ´Ù  
-±×·¯³ª h(x) =Wx + b ·Î´Â linearÇÑ ¼±ÀÌ¶ó  
-y°¡ 1º¸´Ù ¸Å¿ì Å« °ª È¤Àº 0º¸´Ù ¸Å¿ì ÀÛÀº °ªÀ» °¡Áú ¼ö ÀÖ¾î  
+binary classification ì—ì„  yëŠ” 0 or 1ì˜ ê°’ì„ ë§Œë“¤ì–´ ì¤˜ì•¼í•œë‹¤  
+ê·¸ëŸ¬ë‚˜ h(x) =Wx + b ë¡œëŠ” linearí•œ ì„ ì´ë¼  
+yê°€ 1ë³´ë‹¤ ë§¤ìš° í° ê°’ í˜¹ì€ 0ë³´ë‹¤ ë§¤ìš° ì‘ì€ ê°’ì„ ê°€ì§ˆ ìˆ˜ ìˆì–´  
 
 
 <br /><br />
@@ -81,21 +81,21 @@ y°¡ 1º¸´Ù ¸Å¿ì Å« °ª È¤Àº 0º¸´Ù ¸Å¿ì ÀÛÀº °ªÀ» °¡Áú ¼ö ÀÖ¾î
 
 ### Logisitc Hypothesis
 
-Logisitic functionÀ¸·Î sigmoid functionÀ» »ç¿ëÇÑ´Ù
+Logisitic functionìœ¼ë¡œ sigmoid functionì„ ì‚¬ìš©í•œë‹¤
 
-sigmoid function ¥ò(x) = 1 / (1 + e^(-x))
+sigmoid function Ïƒ(x) = 1 / (1 + e^(-x))
 
-H(X) = 1 / (1 + e^(-¥Ò(tr(W)X + b)))
+H(X) = 1 / (1 + e^(-Î£(tr(W)X + b)))
 
-±×·¯¸é y ´Â 0 ~ 1 »çÀÌÀÇ °ªÀ» °¡Áö°Ô µÊ!
+ê·¸ëŸ¬ë©´ y ëŠ” 0 ~ 1 ì‚¬ì´ì˜ ê°’ì„ ê°€ì§€ê²Œ ë¨!
 
 
 (cf)  
--¥Ò(tr(W)X + b) ¿¡¼­,  
-b¸¦ W¿¡ w0·Î ³Ö°í x1 ÀÌÀü¿¡ x0 º¯¼ö ¸¸µé¸é  
--¥Ò(tr(W)X) ·Îµµ Ç¥Çö °¡´É
+-Î£(tr(W)X + b) ì—ì„œ,  
+bë¥¼ Wì— w0ë¡œ ë„£ê³  x1 ì´ì „ì— x0 ë³€ìˆ˜ ë§Œë“¤ë©´  
+-Î£(tr(W)X) ë¡œë„ í‘œí˜„ ê°€ëŠ¥
 
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 http://pythonkim.tistory.com/13
 
 
@@ -105,42 +105,42 @@ http://pythonkim.tistory.com/13
 
 ### Cost function
 
-¿¹Àü linear functionÀÇ cost functionÀº
-(mean squared error function) 2Â÷ ÇÔ¼ö ÇüÅÂ   
-±×·¡¼­ ¹ÌºĞÀ» ÀÌ¿ëÇÑ gradient descent »ç¿ëÇØ min error ±¸ÇÔ  
+ì˜ˆì „ linear functionì˜ cost functionì€
+(mean squared error function) 2ì°¨ í•¨ìˆ˜ í˜•íƒœ   
+ê·¸ë˜ì„œ ë¯¸ë¶„ì„ ì´ìš©í•œ gradient descent ì‚¬ìš©í•´ min error êµ¬í•¨  
 
-logistic functionÀÇ cost functionÀ¸·Î mean squared error ¸¦ ¾²¸é  
-convex functionÀÌ µÇÁö ¾Ê¾Æ ³Ê¹« wavyÇÑ °î¼±  
-ÀÌ°É »ç¿ëÇÏ¸é local minima ¹®Á¦ »ı±è!
+logistic functionì˜ cost functionìœ¼ë¡œ mean squared error ë¥¼ ì“°ë©´  
+convex functionì´ ë˜ì§€ ì•Šì•„ ë„ˆë¬´ wavyí•œ ê³¡ì„   
+ì´ê±¸ ì‚¬ìš©í•˜ë©´ local minima ë¬¸ì œ ìƒê¹€!
 
-±×·¡¼­ ´ÙÀ½°ú °°Àº cost function »ç¿ë  
+ê·¸ë˜ì„œ ë‹¤ìŒê³¼ ê°™ì€ cost function ì‚¬ìš©  
 
-Cost(W) = 1/m ¥Òc( H(x), y ) 
+Cost(W) = 1/m Î£c( H(x), y ) 
 
-c( H(x), y ): H(x), y¿¡ ´ëÇÑ ÇÔ¼ö c´Â,
+c( H(x), y ): H(x), yì— ëŒ€í•œ í•¨ìˆ˜ cëŠ”,
 
 if y = 1 then -log( H(x) )  
 if y = 0 then -log( 1 - H(x) )
 
-¿ì¼± logisitic function¿¡ ÀÚ¿¬»ó¼ö e °¡ ÀÖÀ¸´Ï log »ç¿ëÇÏ±â ÁÁ°í,  
--log(x) ´Â x = 1 ÀÏ ¶§ y = 0,   x = 0 ÀÏ¶§ y °¡ ¹«ÇÑ´ë·Î °¡´Â °î¼±ÀÌ¹Ç·Î  
-½ÇÁ¦ y = 1 ÀÏ ¶§  h(x) = 1 ÀÌ¸é error 0À¸·Î, h(x) = 0 ÀÌ¸é error °ª ÃÖ´ë·Î ³ª¿À°Ô ÇÔ  
+ìš°ì„  logisitic functionì— ìì—°ìƒìˆ˜ e ê°€ ìˆìœ¼ë‹ˆ log ì‚¬ìš©í•˜ê¸° ì¢‹ê³ ,  
+-log(x) ëŠ” x = 1 ì¼ ë•Œ y = 0,   x = 0 ì¼ë•Œ y ê°€ ë¬´í•œëŒ€ë¡œ ê°€ëŠ” ê³¡ì„ ì´ë¯€ë¡œ  
+ì‹¤ì œ y = 1 ì¼ ë•Œ  h(x) = 1 ì´ë©´ error 0ìœ¼ë¡œ, h(x) = 0 ì´ë©´ error ê°’ ìµœëŒ€ë¡œ ë‚˜ì˜¤ê²Œ í•¨  
 
--log(1-x) ´Â x = 0 ÀÏ ¶§ y = 0,   x = 1 ÀÏ¶§ y °¡ ¹«ÇÑ´ë·Î °¡´Â °î¼±ÀÌ¹Ç·Î  
-½ÇÁ¦ y = 0 ÀÏ ¶§  h(x) = 0 ÀÌ¸é error 0À¸·Î, h(x) = 1 ÀÌ¸é error °ª ÃÖ´ë·Î ³ª¿À°Ô ÇÔ
+-log(1-x) ëŠ” x = 0 ì¼ ë•Œ y = 0,   x = 1 ì¼ë•Œ y ê°€ ë¬´í•œëŒ€ë¡œ ê°€ëŠ” ê³¡ì„ ì´ë¯€ë¡œ  
+ì‹¤ì œ y = 0 ì¼ ë•Œ  h(x) = 0 ì´ë©´ error 0ìœ¼ë¡œ, h(x) = 1 ì´ë©´ error ê°’ ìµœëŒ€ë¡œ ë‚˜ì˜¤ê²Œ í•¨
 
 
-µû¶ó¼­ À§ µÎ °³ °°ÀÌ Ç¥ÇöÇÏ´Â ´ÙÀ½ ½Ä »ç¿ë
+ë”°ë¼ì„œ ìœ„ ë‘ ê°œ ê°™ì´ í‘œí˜„í•˜ëŠ” ë‹¤ìŒ ì‹ ì‚¬ìš©
 
 c( H(x), y ) = - y log( H(x) ) - (1 - y) log( 1 - H(x) )
 
-ÀÌÁ¦ ÀÌ°É »ç¿ëÇÏ¸é gradient descent Àû¿ëÇÏ±â ¼ö¿ùÇØÁ®!
+ì´ì œ ì´ê±¸ ì‚¬ìš©í•˜ë©´ gradient descent ì ìš©í•˜ê¸° ìˆ˜ì›”í•´ì ¸!
 
-W <- W + ¥ÄW
+W <- W + Î”W
 
-W <- W - learning_rate * ¡ÓCost(W) / ¡ÓW
+W <- W - learning_rate * âˆ‚Cost(W) / âˆ‚W
 
-ÅÙ¼­ÇÃ·Î¿ì¿¡¼­´Â ´ÙÀ½Ã³·³ »ç¿ë °¡´É
+í…ì„œí”Œë¡œìš°ì—ì„œëŠ” ë‹¤ìŒì²˜ëŸ¼ ì‚¬ìš© ê°€ëŠ¥
 ```
 cost = tf.reduce_sum( -Y * tf.log(hypo) - (1 - Y) * tf.log(1 - hypo)) / (m)
 ```
@@ -153,11 +153,11 @@ cost = tf.reduce_sum( -Y * tf.log(hypo) - (1 - Y) * tf.log(1 - hypo)) / (m)
 ### Logistic Classifier
 
 
-H(X) = 1 / (1 + e^(-¥Ò(tr(W)X + b)))
+H(X) = 1 / (1 + e^(-Î£(tr(W)X + b)))
 
-Cost(W) = - 1/m ¥Ò( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
+Cost(W) = - 1/m Î£( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
 
-W <- W - ¥ç* ¡ÓCost(W) / ¡ÓW
+W <- W - Î·* âˆ‚Cost(W) / âˆ‚W
 
 
 ```
@@ -182,36 +182,36 @@ y_data = [[0],
 # placeholders for a tensor that will be always fed
 X = tf.placeholder(tf.float32, shape = [None, 2])
 Y = tf.placeholder(tf.float32, shape = [None, 1])
-W = tf.Variable(tf.random_normal([2, 1]), name='weight') # X feature °³¼ö(2), Y °³¼ö(1) -> shape[2, 1] 2°³ µé¾î¿Í¼­ 1°³ ³ª¿Í
-b = tf.Variable(tf.random_normal([1])   , name='bias'  ) # ³ª°¡´Â °ª (Y)ÀÇ °³¼ö
+W = tf.Variable(tf.random_normal([2, 1]), name='weight') # X feature ê°œìˆ˜(2), Y ê°œìˆ˜(1) -> shape[2, 1] 2ê°œ ë“¤ì–´ì™€ì„œ 1ê°œ ë‚˜ì™€
+b = tf.Variable(tf.random_normal([1])   , name='bias'  ) # ë‚˜ê°€ëŠ” ê°’ (Y)ì˜ ê°œìˆ˜
 
-# hypothesis H(X) = 1 / (1 + e^(-¥Ò(tr(W)X)))
+# hypothesis H(X) = 1 / (1 + e^(-Î£(tr(W)X)))
 # h = tf.div(1., 1. + tf.exp(-(tf.matmul(X, W) + b)))
 h = tf.sigmoid(tf.matmul(X, W) + b)
 
 # cost function
-# Cost(W) = - 1/m ¥Ò( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
+# Cost(W) = - 1/m Î£( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
 cost = -tf.reduce_mean(Y * tf.log(h) + (1 - Y) * tf.log(1 - h))
 
 # Minimize: small learning rate
-# W <- W - ¥ç* ¡ÓCost(W) / ¡ÓW
+# W <- W - Î·* âˆ‚Cost(W) / âˆ‚W
 optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01)
 train = optimizer.minimize(cost)
 
 # Accuracy computation
 # True if hypothesis > 0.5 else False
-# hypothesis ´Â sigmoid function ÀÌ¹Ç·Î 0 ~ 1 »çÀÌÀÇ °ªÀÌ¾ß
-# ÀÌ°É 0 or 1ÀÎ ½ÇÁ¦ Y °ª°ú ºñ±³ÇÏ±â À§ÇØ¼­´Â hypoµµ 0 or 1·Î ¸¸µé¾îÁà¾ß
-# Áï h °¡ 0.5 º¸´Ù Å©¸é 1 ¾Æ´Ï¸é 0À¸·Î º¯È¯
+# hypothesis ëŠ” sigmoid function ì´ë¯€ë¡œ 0 ~ 1 ì‚¬ì´ì˜ ê°’ì´ì•¼
+# ì´ê±¸ 0 or 1ì¸ ì‹¤ì œ Y ê°’ê³¼ ë¹„êµí•˜ê¸° ìœ„í•´ì„œëŠ” hypoë„ 0 or 1ë¡œ ë§Œë“¤ì–´ì¤˜ì•¼
+# ì¦‰ h ê°€ 0.5 ë³´ë‹¤ í¬ë©´ 1 ì•„ë‹ˆë©´ 0ìœ¼ë¡œ ë³€í™˜
 predicted = tf.cast(h > 0.5, dtype = tf.float32) # 1.0 or 0.0
 accuracy  = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype = tf.float32))
-# 10 °³ Áß 5°³ true·Î ¸ÂÃèÀ¸¸é accuracy = true°³¼ö / ÀüÃ¼ °³¼ö = 0.5 µÉ °Í.
+# 10 ê°œ ì¤‘ 5ê°œ trueë¡œ ë§ì·„ìœ¼ë©´ accuracy = trueê°œìˆ˜ / ì „ì²´ ê°œìˆ˜ = 0.5 ë  ê²ƒ.
 
 
 # 2) Feed data and run graph (operation) using sess.run(op)
 # sess = tf.Session()                         # launch the graph in a session
 # sess.run(tf.global_variables_initializer()) # init global variables
-# ¾ÕÀ¸·Î pythonÀÇ with ±â´É »ç¿ëÇÒ °Í
+# ì•ìœ¼ë¡œ pythonì˜ with ê¸°ëŠ¥ ì‚¬ìš©í•  ê²ƒ
 
 # 3) Update variables in the graph (and return values)
 with tf.Session() as sess:                       # launch the graph in a session
@@ -222,11 +222,11 @@ with tf.Session() as sess:                       # launch the graph in a session
 		if step % 200 == 0:
 			print(step, "Cost: ", cost_val)
 			
-	# Accuracy report: hypo, ¿¹ÃøÇÑ°ª, accuracy(¿¹ÃøÇÑ °á°ú°¡ ½ÇÁ¦ Y¶û ¸î °³ °°³ª) 
+	# Accuracy report: hypo, ì˜ˆì¸¡í•œê°’, accuracy(ì˜ˆì¸¡í•œ ê²°ê³¼ê°€ ì‹¤ì œ Yë‘ ëª‡ ê°œ ê°™ë‚˜) 
 	hy, c, a = sess.run([h, predicted, accuracy], feed_dict = {X: x_data, Y: y_data})
 	print("\nHypothesis: ", hy,"\Correct: ", c,"\Accuracy: ", a)
 	
-	# ÀÌÀü linear regression ÄÚµå
+	# ì´ì „ linear regression ì½”ë“œ
 	# for step in range(2001):
 	#	cost_val, h_val, _ = sess.run([cost, h, train], feed_dict={X: x_data, Y: y_data})
 	#	if step % 10 == 0:
@@ -234,7 +234,7 @@ with tf.Session() as sess:                       # launch the graph in a session
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-05-1-logistic_regression.py
 
 
@@ -244,10 +244,10 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-05-1-logistic_re
 
 ### Classifying diabetes
 
-½ÇÁ¦ ¿¹Á¦ »ç¿ëÇØº¸±â (´ç´¢º´ µ¥ÀÌÅÍ)
+ì‹¤ì œ ì˜ˆì œ ì‚¬ìš©í•´ë³´ê¸° (ë‹¹ë‡¨ë³‘ ë°ì´í„°)
 
-data02_diabetes.csv µ¥ÀÌÅÍ ÆÄÀÏÀº  
-C:\Users\(»ç¿ëÀÚ °èÁ¤ÀÌ¸§)\Docker\work ¿¡ ÀúÀåÇØ¼­ »ç¿ë
+data02_diabetes.csv ë°ì´í„° íŒŒì¼ì€  
+C:\Users\(ì‚¬ìš©ì ê³„ì •ì´ë¦„)\Docker\work ì— ì €ì¥í•´ì„œ ì‚¬ìš©
 
 ```
 import tensorflow as tf
@@ -259,30 +259,30 @@ os.getcwd()
 tf.set_random_seed(777)  # for reproducibility
 
 # 1) Build a graph using tf operations
-xy = np.loadtxt('data02_diabetes.csv', delimiter = ',', dtype = np.float32)
+xy = np.loadtxt('data_02_diabetes.csv', delimiter = ',', dtype = np.float32)
 x_data = xy[:, 0:-1]
 y_data = xy[:, [-1]]
 
 print(x_data.shape, y_data.shape)
 
 # placeholders for a tensor that will be always fed
-X = tf.placeholder(tf.float32, shape=[None, 8]) # X ¼Ó¼º °³¼ö 8°³
-Y = tf.placeholder(tf.float32, shape=[None, 1]) # Y °³¼ö 1°³
+X = tf.placeholder(tf.float32, shape=[None, 8]) # X ì†ì„± ê°œìˆ˜ 8ê°œ
+Y = tf.placeholder(tf.float32, shape=[None, 1]) # Y ê°œìˆ˜ 1ê°œ
 
 W = tf.Variable(tf.random_normal([8, 1]), name='weight')
 b = tf.Variable(tf.random_normal([1]), name='bias')
 
 
-# hypothesis H(X) = 1 / (1 + e^(-¥Ò(tr(W)X)))
+# hypothesis H(X) = 1 / (1 + e^(-Î£(tr(W)X)))
 # h = tf.div(1., 1. + tf.exp(-(tf.matmul(X, W) + b)))
 h = tf.sigmoid(tf.matmul(X, W) + b)
 
 # cost function
-# Cost(W) = - 1/m ¥Ò( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
+# Cost(W) = - 1/m Î£( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
 cost = -tf.reduce_mean(Y * tf.log(h) + (1 - Y) * tf.log(1 - h))
 
 # Minimize: small learning rate
-# W <- W - ¥ç* ¡ÓCost(W) / ¡ÓW
+# W <- W - Î·* âˆ‚Cost(W) / âˆ‚W
 # optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01)
 # train = optimizer.minimize(cost)
 train = tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(cost)
@@ -290,12 +290,12 @@ train = tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(cost)
 
 # Accuracy computation
 # True if hypothesis > 0.5 else False
-# hypothesis ´Â sigmoid function ÀÌ¹Ç·Î 0 ~ 1 »çÀÌÀÇ °ªÀÌ¾ß
-# ÀÌ°É 0 or 1ÀÎ ½ÇÁ¦ Y °ª°ú ºñ±³ÇÏ±â À§ÇØ¼­´Â hypoµµ 0 or 1·Î ¸¸µé¾îÁà¾ß
-# Áï h °¡ 0.5 º¸´Ù Å©¸é 1 ¾Æ´Ï¸é 0À¸·Î º¯È¯
+# hypothesis ëŠ” sigmoid function ì´ë¯€ë¡œ 0 ~ 1 ì‚¬ì´ì˜ ê°’ì´ì•¼
+# ì´ê±¸ 0 or 1ì¸ ì‹¤ì œ Y ê°’ê³¼ ë¹„êµí•˜ê¸° ìœ„í•´ì„œëŠ” hypoë„ 0 or 1ë¡œ ë§Œë“¤ì–´ì¤˜ì•¼
+# ì¦‰ h ê°€ 0.5 ë³´ë‹¤ í¬ë©´ 1 ì•„ë‹ˆë©´ 0ìœ¼ë¡œ ë³€í™˜
 predicted = tf.cast(h > 0.5, dtype = tf.float32) # 1.0 or 0.0
 accuracy  = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype = tf.float32))
-# 10 °³ Áß 5°³ true·Î ¸ÂÃèÀ¸¸é accuracy = true°³¼ö / ÀüÃ¼ °³¼ö = 0.5 µÉ °Í.
+# 10 ê°œ ì¤‘ 5ê°œ trueë¡œ ë§ì·„ìœ¼ë©´ accuracy = trueê°œìˆ˜ / ì „ì²´ ê°œìˆ˜ = 0.5 ë  ê²ƒ.
 
 
 # 2) Feed data and run graph (operation) using sess.run(op)
@@ -308,12 +308,12 @@ with tf.Session() as sess:                       # launch graph
 		if step % 200 == 0:
 			print(step, "Cost: ", cost_val)
 			
-	# Accuracy report: hypo, ¿¹ÃøÇÑ°ª, accuracy(¿¹ÃøÇÑ °á°ú°¡ ½ÇÁ¦ Y¶û ¸î °³ °°³ª) 
+	# Accuracy report: hypo, ì˜ˆì¸¡í•œê°’, accuracy(ì˜ˆì¸¡í•œ ê²°ê³¼ê°€ ì‹¤ì œ Yë‘ ëª‡ ê°œ ê°™ë‚˜) 
 	hy, c, a = sess.run([h, predicted, accuracy], feed_dict = {X: x_data, Y: y_data})
 	print("\nHypothesis: ", hy,"\Correct: ", c,"\Accuracy: ", a)
-    # ÀÌ ¿¹Á¦´Â ¾à 76% accuracy º¸ÀÓ
+    # ì´ ì˜ˆì œëŠ” ì•½ 76% accuracy ë³´ì„
 	
-	# ÀÌÀü linear regression ÄÚµå
+	# ì´ì „ linear regression ì½”ë“œ
 	# for step in range(2001):
 	#	cost_val, h_val, _ = sess.run([cost, h, train], feed_dict={X: x_data, Y: y_data})
 	#	if step % 10 == 0:
@@ -321,7 +321,7 @@ with tf.Session() as sess:                       # launch graph
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-05-2-logistic_regression_diabetes.py
 
 <br /><br />
@@ -341,7 +341,7 @@ tf.set_random_seed(777)  # for reproducibility
 
 # 1) Build a graph using tf operations
 filename_queue = tf.train.string_input_producer(
-	['data02_diabetes.csv'], shuffle = False, name = 'filename_queue')
+	['data_02_diabetes.csv'], shuffle = False, name = 'filename_queue')
 
 reader     = tf.TextLineReader()
 key, value = reader.read(filename_queue)
@@ -362,23 +362,23 @@ train_x_batch, train_y_batch = tf.train.batch(
 print(x_data.shape, y_data.shape)
 
 # placeholders for a tensor that will be always fed
-X = tf.placeholder(tf.float32, shape=[None, 8]) # X ¼Ó¼º °³¼ö 8°³
-Y = tf.placeholder(tf.float32, shape=[None, 1]) # Y °³¼ö 1°³
+X = tf.placeholder(tf.float32, shape=[None, 8]) # X ì†ì„± ê°œìˆ˜ 8ê°œ
+Y = tf.placeholder(tf.float32, shape=[None, 1]) # Y ê°œìˆ˜ 1ê°œ
 
 W = tf.Variable(tf.random_normal([8, 1]), name='weight')
 b = tf.Variable(tf.random_normal([1]), name='bias')
 
 
-# hypothesis H(X) = 1 / (1 + e^(-¥Ò(tr(W)X)))
+# hypothesis H(X) = 1 / (1 + e^(-Î£(tr(W)X)))
 # h = tf.div(1., 1. + tf.exp(-(tf.matmul(X, W) + b)))
 h = tf.sigmoid(tf.matmul(X, W) + b)
 
 # cost function
-# Cost(W) = - 1/m ¥Ò( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
+# Cost(W) = - 1/m Î£( y log( H(x) ) + (1 - y) log( 1 - H(x) ) )
 cost = -tf.reduce_mean(Y * tf.log(h) + (1 - Y) * tf.log(1 - h))
 
 # Minimize: small learning rate
-# W <- W - ¥ç* ¡ÓCost(W) / ¡ÓW
+# W <- W - Î·* âˆ‚Cost(W) / âˆ‚W
 # optimizer = tf.train.GradientDescentOptimizer(learning_rate = 0.01)
 # train = optimizer.minimize(cost)
 train = tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(cost)
@@ -386,12 +386,12 @@ train = tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(cost)
 
 # Accuracy computation
 # True if hypothesis > 0.5 else False
-# hypothesis ´Â sigmoid function ÀÌ¹Ç·Î 0 ~ 1 »çÀÌÀÇ °ªÀÌ¾ß
-# ÀÌ°É 0 or 1ÀÎ ½ÇÁ¦ Y °ª°ú ºñ±³ÇÏ±â À§ÇØ¼­´Â hypoµµ 0 or 1·Î ¸¸µé¾îÁà¾ß
-# Áï h °¡ 0.5 º¸´Ù Å©¸é 1 ¾Æ´Ï¸é 0À¸·Î º¯È¯
+# hypothesis ëŠ” sigmoid function ì´ë¯€ë¡œ 0 ~ 1 ì‚¬ì´ì˜ ê°’ì´ì•¼
+# ì´ê±¸ 0 or 1ì¸ ì‹¤ì œ Y ê°’ê³¼ ë¹„êµí•˜ê¸° ìœ„í•´ì„œëŠ” hypoë„ 0 or 1ë¡œ ë§Œë“¤ì–´ì¤˜ì•¼
+# ì¦‰ h ê°€ 0.5 ë³´ë‹¤ í¬ë©´ 1 ì•„ë‹ˆë©´ 0ìœ¼ë¡œ ë³€í™˜
 predicted = tf.cast(h > 0.5, dtype = tf.float32) # 1.0 or 0.0
 accuracy  = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype = tf.float32))
-# 10 °³ Áß 5°³ true·Î ¸ÂÃèÀ¸¸é accuracy = true°³¼ö / ÀüÃ¼ °³¼ö = 0.5 µÉ °Í.
+# 10 ê°œ ì¤‘ 5ê°œ trueë¡œ ë§ì·„ìœ¼ë©´ accuracy = trueê°œìˆ˜ / ì „ì²´ ê°œìˆ˜ = 0.5 ë  ê²ƒ.
 
 
 # 2) Feed data and run graph (operation) using sess.run(op)
@@ -413,7 +413,7 @@ with tf.Session() as sess:                       # launch graph
 	coord.request_stop()
 	coord.join(threads)
 
-	# Accuracy report: hypo, ¿¹ÃøÇÑ°ª, accuracy(¿¹ÃøÇÑ °á°ú°¡ ½ÇÁ¦ Y¶û ¸î °³ °°³ª) 
+	# Accuracy report: hypo, ì˜ˆì¸¡í•œê°’, accuracy(ì˜ˆì¸¡í•œ ê²°ê³¼ê°€ ì‹¤ì œ Yë‘ ëª‡ ê°œ ê°™ë‚˜) 
 	hy, c, a = sess.run([h, predicted, accuracy], feed_dict = {X: x_data, Y: y_data})
 	print("\nHypothesis: ", hy,"\Correct: ", c,"\Accuracy: ", a)
 ```
