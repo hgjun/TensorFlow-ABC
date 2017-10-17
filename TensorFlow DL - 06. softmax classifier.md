@@ -464,7 +464,7 @@ for p, r in zip(v, t.flatten()):
 softmax_cross_entropy_with_logits 함수 연습으로  
 실제 예제 사용해보기 (동물 데이터)
 
-data03_zoo.csv 데이터 파일은  
+data_03_zoo.csv 데이터 파일은  
 C:\Users\(사용자 계정이름)\Docker\work 에 저장해서 사용
 
 ```
@@ -477,7 +477,7 @@ os.getcwd()
 tf.set_random_seed(777)  # for reproducibility
 
 # 1) Build a graph using tf operations
-xy = np.loadtxt('data03_zoo.csv', delimiter = ',', dtype = np.float32)
+xy = np.loadtxt('data_03_zoo.csv', delimiter = ',', dtype = np.float32)
 x_data = xy[:, 0:-1]
 y_data = xy[:, [-1]]
 
