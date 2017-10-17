@@ -448,7 +448,10 @@ print(t.flatten())  # [0 3]
 
 v = [1,2]
 for p, r in zip(v, t.flatten()):
-print(p, r)
+  print(p, r)
+
+# 1 0
+# 2 3
 ```
 
 
