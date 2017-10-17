@@ -311,13 +311,9 @@ os.getcwd()
 #/home/testu/work/MNIST_data 에 다운 받음
 from tensorflow.examples.tutorials.mnist import input_data 
 
-mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)   
-# (처음 읽을 때 웹에서 다운 받으므로 시간 조금 걸림)
-
-
-
 # 읽어올 때 바로 one-hot 으로 처리
-mnist = input_data.read_data_sets("MNIST_data/", one_hot=True) 
+# (처음 읽을 때 웹에서 다운 받으므로 시간 조금 걸림)
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)   
 
 # 이미지 하나 28 x 28 x 1 image = 총 784 픽셀
 X = tf.placeholder(tf.float32, [None, 784])
