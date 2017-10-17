@@ -227,7 +227,7 @@ np.arange(15))
 테스트 데이터 파일은  
 C:\Users\(사용자 계정이름)\Docker\work 에 저장해서 사용
 
-data01_test_score.csv 파일 내용
+data_01_test_score.csv 파일 내용
 
 ```
 # x1: EXAM1 점수, x2: EXAM2 점수, x3: EXAM3 점수, y: FINAL 점수
@@ -249,7 +249,7 @@ os.getcwd()
 os.chdir('/home/testu/work') 
 os.getcwd()
 
-xy = np.loadtxt('data01_test_score.csv', delimiter=',', dtype=np.float32)
+xy = np.loadtxt('data_01_test_score.csv', delimiter=',', dtype=np.float32)
 print(xy.ndim, xy.shape, xy, len(xy))
 
 
@@ -298,7 +298,7 @@ os.getcwd()
 tf.set_random_seed(777)  # for reproducibility
 
 # 1) Build a graph using tf operations
-xy = np.loadtxt('data01_test_score.csv', delimiter=',', dtype=np.float32)
+xy = np.loadtxt('data_01_test_score.csv', delimiter=',', dtype=np.float32)
 x_data = xy[:, 0:-1]
 y_data = xy[:, [-1]]
 
