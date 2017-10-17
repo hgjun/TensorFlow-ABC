@@ -9,7 +9,7 @@
 4. Training and Evaluation (with MNIST data)
 
 
-ÂüÁ¶ ¸µÅ©
+ì°¸ì¡° ë§í¬
 https://www.youtube.com/watch?v=oSJfejG2C3w&feature=youtu.be
 
 
@@ -67,8 +67,8 @@ cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(hypothesis), axis=1))
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
 
 # Correct prediction Test model
-prediction = tf.arg_max(hypothesis, 1)
-is_correct = tf.equal(prediction, tf.arg_max(Y, 1))
+prediction = tf.argmax(hypothesis, 1)
+is_correct = tf.equal(prediction, tf.argmax(Y, 1))
 accuracy   = tf.reduce_mean(tf.cast(is_correct, tf.float32))
 
 # Launch graph
@@ -76,13 +76,13 @@ with tf.Session() as sess:
     # Initialize TensorFlow variables
     sess.run(tf.global_variables_initializer())
 
-	# ÇĞ½À: tr data »ç¿ë
+	# í•™ìŠµ: tr data ì‚¬ìš©
     for step in range(201):
         cost_val, W_val, _ = sess.run(
             [cost, W, optimizer], feed_dict={X: x_data, Y: y_data})
         print(step, cost_val, W_val)
 
-	# Å×½ºÆ®: test data »ç¿ë
+	# í…ŒìŠ¤íŠ¸: test data ì‚¬ìš©
     # predict
     print("Prediction:", sess.run(prediction, feed_dict={X: x_test}))
     # Calculate the accuracy
@@ -90,7 +90,7 @@ with tf.Session() as sess:
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©
+ì°¸ì¡° ë§í¬
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-07-1-learning_rate_and_evaluation.py
 
 
@@ -101,18 +101,18 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-07-1-learning_ra
 ### 2. Learning rate
 
 - Learning rate
-  - ³Ê¹« Å©¸é overshooting ¼ö·ÅÇØ¾ßÇÏ´Âµ¥ Æ¨°Ü³ª°¡ ¹ß»ê
-  - ³Ê¹« ÀÛÀ¸¸é iteration ¸¹¾ÆÁ® ´À·Á, local minima »ı±æ¼ö
+  - ë„ˆë¬´ í¬ë©´ overshooting ìˆ˜ë ´í•´ì•¼í•˜ëŠ”ë° íŠ•ê²¨ë‚˜ê°€ ë°œì‚°
+  - ë„ˆë¬´ ì‘ìœ¼ë©´ iteration ë§ì•„ì ¸ ëŠë ¤, local minima ìƒê¸¸ìˆ˜
 
 
-Learning rate ³Ê¹« Å« °æ¿ì,  
-À§ ¿¹Á¦ ÄÚµå¿¡¼­ learning_rate = 10 Àû¿ë
+Learning rate ë„ˆë¬´ í° ê²½ìš°,  
+ìœ„ ì˜ˆì œ ì½”ë“œì—ì„œ learning_rate = 10 ì ìš©
 ```
 learning_rate = 10
 optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
 ```
 
-NaN °ª »ı°Ü ÇĞ½À Æ÷±â
+NaN ê°’ ìƒê²¨ í•™ìŠµ í¬ê¸°
 ```
 (0, 8.1185646, array([[  2.77571678,   3.12156439,  -5.76682711],
        [ 15.4650259 ,  18.74593163, -31.18079185],
@@ -126,14 +126,14 @@ NaN °ª »ı°Ü ÇĞ½À Æ÷±â
 ...
 ```
 
-Learning rate ³Ê¹« ÀÛÀº °æ¿ì,  
-À§ ¿¹Á¦ ÄÚµå¿¡¼­ learning_rate = 1e-10 Àû¿ë
+Learning rate ë„ˆë¬´ ì‘ì€ ê²½ìš°,  
+ìœ„ ì˜ˆì œ ì½”ë“œì—ì„œ learning_rate = 1e-10 ì ìš©
 ```
 learning_rate = 1e-10 
 optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
 ```
 
-°ª ³Ê¹« ÀÛ°Ô º¯ÇÏ´Â°Å º¼¼ö 
+ê°’ ë„ˆë¬´ ì‘ê²Œ ë³€í•˜ëŠ”ê±° ë³¼ìˆ˜ 
 ```
 (0, 8.3721457, array([[-0.16361724, -0.6074751 ,  0.28116855],
        [-0.06498256,  1.16052759,  0.37132689],
@@ -156,14 +156,14 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
 
 #### Non-normalized inputs
 
-data°¡ normalized µÇ¾îÀÖÁö ¾ÊÀ¸¸é learning rate Àß ¼³Á¤ÇØµµ NaN ³ª¿Ã ¼ö ÀÖ¾î
+dataê°€ normalized ë˜ì–´ìˆì§€ ì•Šìœ¼ë©´ learning rate ì˜ ì„¤ì •í•´ë„ NaN ë‚˜ì˜¬ ìˆ˜ ìˆì–´
 
 ```
 import tensorflow as tf
 import numpy as np
 tf.set_random_seed(777)  # for reproducibility
 
-# Å« Â÷ÀÌ ÀÖ´Â °ªµé ÀÖ¾î -> ÇĞ½À ÇÏ´Ù NaN ¹ß»ı½ÃÅ´
+# í° ì°¨ì´ ìˆëŠ” ê°’ë“¤ ìˆì–´ -> í•™ìŠµ í•˜ë‹¤ NaN ë°œìƒì‹œí‚´
 xy = np.array([[828.659973, 833.450012, 908100, 828.349976, 831.659973],
                [823.02002, 828.070007, 1828100, 821.655029, 828.070007],
                [819.929993, 824.400024, 1438100, 818.97998, 824.159973],
@@ -211,8 +211,8 @@ for step in range(101):
 #### Normalized inputs (min-max scale)
 
 
-MinMaxScaler() ÇÔ¼ö ¿ä»õ ¸¹ÀÌ »ç¿ë  
-»ç¿ëÇÑ ÈÄ ¾Æ±î xy °ª ´ÙÀ½°ú °°¾ÆÁ® (0 ~ 1 »çÀÌ °ªÀ¸·Î normalize)
+MinMaxScaler() í•¨ìˆ˜ ìš”ìƒˆ ë§ì´ ì‚¬ìš©  
+ì‚¬ìš©í•œ í›„ ì•„ê¹Œ xy ê°’ ë‹¤ìŒê³¼ ê°™ì•„ì ¸ (0 ~ 1 ì‚¬ì´ ê°’ìœ¼ë¡œ normalize)
 
 ```
 [[ 0.99999999  0.99999999  0.          1.          1.        ]
@@ -225,7 +225,7 @@ MinMaxScaler() ÇÔ¼ö ¿ä»õ ¸¹ÀÌ »ç¿ë
  [ 0.          0.07747099  0.5326087   0.          0.        ]]
 ```
 
-ÀÌÁ¦ learning_rate=1e-5 ·Î ÀÛ¾Æµµ Àß ÇĞ½ÀµÈ´Ù.
+ì´ì œ learning_rate=1e-5 ë¡œ ì‘ì•„ë„ ì˜ í•™ìŠµëœë‹¤.
 
 
 ```
@@ -286,7 +286,7 @@ for step in range(101):
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-07-2-linear_regression_without_min_max.py  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-07-3-linear_regression_min_max.py
 
@@ -299,7 +299,7 @@ https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-07-3-linear_regr
 
 #### MNIST data
 
-½ÇÁ¦ µ¥ÀÌÅÍ·Î ¸ğµ¨ ¸¸µé¾îº¸±â
+ì‹¤ì œ ë°ì´í„°ë¡œ ëª¨ë¸ ë§Œë“¤ì–´ë³´ê¸°
 
 ```
 import tensorflow as tf
@@ -308,31 +308,31 @@ import os
 os.chdir('/home/testu/work') 
 os.getcwd()
 
-#/home/testu/work/MNIST_data ¿¡ ´Ù¿î ¹ŞÀ½
+#/home/testu/work/MNIST_data ì— ë‹¤ìš´ ë°›ìŒ
 from tensorflow.examples.tutorials.mnist import input_data 
 
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)   
-(Ã³À½ ÀĞÀ» ¶§ À¥¿¡¼­ ´Ù¿î ¹ŞÀ¸¹Ç·Î ½Ã°£ Á¶±İ °É¸²)
+(ì²˜ìŒ ì½ì„ ë•Œ ì›¹ì—ì„œ ë‹¤ìš´ ë°›ìœ¼ë¯€ë¡œ ì‹œê°„ ì¡°ê¸ˆ ê±¸ë¦¼)
 
 
 
-ÀĞ¾î¿Ã ¶§ ¹Ù·Î one-hot À¸·Î Ã³¸®
+ì½ì–´ì˜¬ ë•Œ ë°”ë¡œ one-hot ìœ¼ë¡œ ì²˜ë¦¬
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True) 
 
-ÀÌ¹ÌÁö ÇÏ³ª 28 x 28 x 1 image = ÃÑ 784 ÇÈ¼¿
+ì´ë¯¸ì§€ í•˜ë‚˜ 28 x 28 x 1 image = ì´ 784 í”½ì…€
 X = tf.placeholder(tf.float32, [None, 784])
 
-Y 0 ~ 9ÀÇ ¼ıÀÚ ÀÌ°É one-hot ÀÎÄÚµùÇØ¼­ 10 class °¡ µÉ °Í
+Y 0 ~ 9ì˜ ìˆ«ì ì´ê±¸ one-hot ì¸ì½”ë”©í•´ì„œ 10 class ê°€ ë  ê²ƒ
 Y = tf.placeholder(tf.float32, [None, 10]) 
 
-¸Ş¸ğ¸®¿¡ µ¥ÀÌÅÍ ´Ù ¿Ã¸®¸é NG
-¹èÄ¡·Î (¿¹, 100°³¾¿ ¿Ã·Á¼­) »ç¿ë
+ë©”ëª¨ë¦¬ì— ë°ì´í„° ë‹¤ ì˜¬ë¦¬ë©´ NG
+ë°°ì¹˜ë¡œ (ì˜ˆ, 100ê°œì”© ì˜¬ë ¤ì„œ) ì‚¬ìš©
 batch_size = 100
 batch_xs, batch_ys = mnist.train.next_batch(batch_size)
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://github.com/hunkim/DeepLearningZeroToAll/blob/master/lab-07-4-mnist_introduction.py
 http://yann.lecun.com/exdb/mnist
 
@@ -346,13 +346,13 @@ http://yann.lecun.com/exdb/mnist
 
 ##### 1 epoch  
 1 forward pass and 1 backward pass of all the training examples  
-ÀüÃ¼ tr data ´Ù ÇĞ½À½ÃÅ°¸é 1 epoch
+ì „ì²´ tr data ë‹¤ í•™ìŠµì‹œí‚¤ë©´ 1 epoch
 
 
 ##### batch size  
 the number of training examples in one forward/backward pass.  
 The higher the batch size, the more memory space you'll need.  
-1 epoch À§ÇØ ÇÑ¹ø¿¡ tr data ´Ù ÀĞÁö ¾Ê°í 100°³¾¿ Àß¶ó¼­ ¾¸ 100 ÀÌ batch size
+1 epoch ìœ„í•´ í•œë²ˆì— tr data ë‹¤ ì½ì§€ ì•Šê³  100ê°œì”© ì˜ë¼ì„œ ì”€ 100 ì´ batch size
              
 ##### number of iterations  
 number of passes, each pass using [batch size] number of examples.  
@@ -361,20 +361,20 @@ To be clear, one pass = one forward pass + one backward pass
 
 ##### example
 if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.  
-1000°³ tr data ÀÌ°í batch size 500 ÀÌ¸é 1 epoch (ÀüÃ¼ ÇĞ½À) À§ÇØ 2 iteration ¹İº¹µÊ
+1000ê°œ tr data ì´ê³  batch size 500 ì´ë©´ 1 epoch (ì „ì²´ í•™ìŠµ) ìœ„í•´ 2 iteration ë°˜ë³µë¨
 
 
-(ÄÚµå ¿¹)
+(ì½”ë“œ ì˜ˆ)
 ```
-training_epochs = 15   # 15 epoch ÇĞ½ÀÇÒ °Í (¸¹À»¼ö·Ï ÁÁÁö¸¸ ´À·ÁÁö°ÚÁö)
+training_epochs = 15   # 15 epoch í•™ìŠµí•  ê²ƒ (ë§ì„ìˆ˜ë¡ ì¢‹ì§€ë§Œ ëŠë ¤ì§€ê² ì§€)
 batch_size = 100
-for epoch in range(training_epochs):   # 15¹ø ¹İº¹ 
+for epoch in range(training_epochs):   # 15ë²ˆ ë°˜ë³µ 
 	avg_cost = 0
 	
-	# (¿¹) ÀüÃ¼ µ¥ÀÌÅÍ(1000) / ¹èÄ¡ »çÀÌÁî (500) = 2¹ø µ¹¾Æ
+	# (ì˜ˆ) ì „ì²´ ë°ì´í„°(1000) / ë°°ì¹˜ ì‚¬ì´ì¦ˆ (500) = 2ë²ˆ ëŒì•„
 	total_batch = int(mnist.train.num_examples / batch_size)
 
-	for i in range(total_batch): # (¿¹) 1 epoch À§ÇØ 2¹ø µ¹¾Æ
+	for i in range(total_batch): # (ì˜ˆ) 1 epoch ìœ„í•´ 2ë²ˆ ëŒì•„
 		batch_xs, batch_ys = mnist.train.next_batch(batch_size)
 		c, _ = sess.run([cost, optimizer], feed_dict={
 						X: batch_xs, Y: batch_ys})
@@ -385,7 +385,7 @@ for epoch in range(training_epochs):   # 15¹ø ¹İº¹
 ```
 
 <br />
-ÂüÁ¶ ¸µÅ©  
+ì°¸ì¡° ë§í¬  
 https://stackoverflow.com/questions/4752626/epoch-vs-iteration-when-training-neural-networks
 
 
@@ -395,20 +395,20 @@ https://stackoverflow.com/questions/4752626/epoch-vs-iteration-when-training-neu
 
 #### Report results on test dataset
 
-Å×½ºÆ® µ¥ÀÌÅÍ·Î Å×½ºÆ® ÇÒ °Í
+í…ŒìŠ¤íŠ¸ ë°ì´í„°ë¡œ í…ŒìŠ¤íŠ¸ í•  ê²ƒ
 ```
 print("Accuracy: ", accuracy.eval(session=sess, 
                     feed_dict= {X: mnist.test.images, Y: mnist.test.labels}))
 ```
 
-ÀÌÀü¿¡´Â sess.run »ç¿ëÇß¾î
+ì´ì „ì—ëŠ” sess.run ì‚¬ìš©í–ˆì–´
 ```
 sess.run(accuracy, feed_dict = {X: mnist.test.images, Y: mnist.test.labels})
 ```
 
-ÀÌ°Å ´ë½Å accuracy º¯¼ö Á÷Á¢ »ç¿ëÇØ¼­ accuracy.eval( ) ·Îµµ °¡´É
+ì´ê±° ëŒ€ì‹  accuracy ë³€ìˆ˜ ì§ì ‘ ì‚¬ìš©í•´ì„œ accuracy.eval( ) ë¡œë„ ê°€ëŠ¥
 ```
-sess.run(var, ... )  <==>  var.eval( session = sess, ..)  °°´Ù!
+sess.run(var, ... )  <==>  var.eval( session = sess, ..)  ê°™ë‹¤!
 ```
 
 
@@ -420,9 +420,9 @@ sess.run(var, ... )  <==>  var.eval( session = sess, ..)  °°´Ù!
 
 
 
-·£´ıÇÏ°Ô ¼ıÀÚ ÀÌ¹ÌÁö ÇÏ³ª ÀĞ¾î¿Í  
-mnist.test.num_examples = 10000 ÀÌ¸é,  
-random.randint(0, 9999) Áß ÇÑ ¼ıÀÚ »Ì¾ÆÁÙ °Í
+ëœë¤í•˜ê²Œ ìˆ«ì ì´ë¯¸ì§€ í•˜ë‚˜ ì½ì–´ì™€  
+mnist.test.num_examples = 10000 ì´ë©´,  
+random.randint(0, 9999) ì¤‘ í•œ ìˆ«ì ë½‘ì•„ì¤„ ê²ƒ
 
 ```
 import matplotlib.pyplot as plt
@@ -430,25 +430,25 @@ import matplotlib.pyplot as plt
 
 print("number of ex:", mnist.test.num_examples) # 10000
 r = random.randint(0, mnist.test.num_examples - 1)
-print(r)   # 4752 ¸é ÀÌ¹ÌÁö "9" ÀÓ
+print(r)   # 4752 ë©´ ì´ë¯¸ì§€ "9" ì„
 
 
-# one-hot °ªÀÌ´Ï ¼ıÀÚ 9 ÀÌ¹ÌÁö ÀĞÇûÀ¸¸é argmax ÀÇÇØ label = 9 µÉ °Í
+# one-hot ê°’ì´ë‹ˆ ìˆ«ì 9 ì´ë¯¸ì§€ ì½í˜”ìœ¼ë©´ argmax ì˜í•´ label = 9 ë  ê²ƒ
 print(mnist.test.labels[r:r + 1]) # [[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  1.]]
 print("Label: ", sess.run(tf.argmax(mnist.test.labels[r:r + 1], 1)))
 
-# hypo ¿¡ ÀĞ¾î¿Â ÀÌ¹ÌÁö ÁÖ°í fitting °á°ú¿¡¼­ argmax Ãâ·Â
+# hypo ì— ì½ì–´ì˜¨ ì´ë¯¸ì§€ ì£¼ê³  fitting ê²°ê³¼ì—ì„œ argmax ì¶œë ¥
 print("Prediction: ", sess.run(
 	tf.argmax(hypothesis, 1), feed_dict={X: mnist.test.images[r:r + 1]}))
 ```
 
-(¿¹) ÇĞ½À Àß µÆÀ¸¸é ´ÙÀ½Ã³·³ ³ª¿Ã °Í
+(ì˜ˆ) í•™ìŠµ ì˜ ëìœ¼ë©´ ë‹¤ìŒì²˜ëŸ¼ ë‚˜ì˜¬ ê²ƒ
 ```
 ('Label: ', array([9]))
 ('Prediction: ', array([9]))
 ```
 
-ÀĞ¾î¿Â ÀÌ¹ÌÁö Ãâ·ÂÇØÁÜ
+ì½ì–´ì˜¨ ì´ë¯¸ì§€ ì¶œë ¥í•´ì¤Œ
 ```
 plt.imshow(
 	 mnist.test.images[r:r + 1].reshape(28, 28),
@@ -464,7 +464,7 @@ plt.show()
 
 #### Softmax classificaiton with MNIST data
 
-ÀüÃ¼ ÄÚµå
+ì „ì²´ ì½”ë“œ
 
 ```
 import tensorflow as tf
@@ -477,7 +477,7 @@ import matplotlib.pyplot as plt
 
 tf.set_random_seed(777)  # for reproducibility
 
-from tensorflow.examples.tutorials.mnist import input_data #/home/testu/work/MNIST_data ¿¡ ´Ù¿î ¹ŞÀ½
+from tensorflow.examples.tutorials.mnist import input_data #/home/testu/work/MNIST_data ì— ë‹¤ìš´ ë°›ìŒ
 # Check out https://www.tensorflow.org/get_started/mnist/beginners for
 # more information about the mnist dataset
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)   
@@ -495,7 +495,7 @@ b = tf.Variable(tf.random_normal([nb_classes]))
 # Hypothesis (using softmax)
 hypothesis = tf.nn.softmax(tf.matmul(X, W) + b)
 
-cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(hypothesis), axis=1)) # cross entropy »ç¿ëÇÑ costÇÔ¼ö
+cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(hypothesis), axis=1)) # cross entropy ì‚¬ìš©í•œ costí•¨ìˆ˜
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
 
 # Test model
@@ -544,7 +544,7 @@ with tf.Session() as sess:
     
 ```
 
-°á°ú
+ê²°ê³¼
 ```
 Extracting MNIST_data/train-images-idx3-ubyte.gz
 Extracting MNIST_data/train-labels-idx1-ubyte.gz
