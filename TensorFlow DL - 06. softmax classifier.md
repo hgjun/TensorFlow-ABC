@@ -114,6 +114,8 @@ Li * -log(Si) = [1 0] ⊙ [∞ 0] = ∞
 Li 가 [1 0] 이고 Si 가 [0.99 0] 이면  
 Li * -log(Si) = [1 0] ⊙ [0 ∞] = 0
 
+(-log(x) 형태 참조 이미지)  
+<img src="https://i.redd.it/3j90u8mqej2z.png" />
 
 참조 링크  
 https://www.youtube.com/watch?v=tRsSi_sqXjI
