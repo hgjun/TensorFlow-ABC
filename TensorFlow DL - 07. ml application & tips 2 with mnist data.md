@@ -495,7 +495,7 @@ cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(hypothesis), axis=1)) # cross en
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
 
 # Test model
-is_correct = tf.equal(tf.arg_max(hypothesis, 1), tf.arg_max(Y, 1))
+is_correct = tf.equal(tf.argmax(hypothesis, 1), tf.argmax(Y, 1))
 # Calculate accuracy
 accuracy = tf.reduce_mean(tf.cast(is_correct, tf.float32))
 
