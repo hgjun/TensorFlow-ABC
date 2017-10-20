@@ -182,13 +182,13 @@ matrix2 = tf.constant([[2., 2.]])
 # array([[ 5.,  5.]], dtype=float32)
 
 
-Shape 달라도 연산가능
+# Shape 달라도 연산가능
 matrix1 = tf.constant([[1., 2.]])
 matrix2 = tf.constant(3.)  # -> [[3, 3]] 으로 맞춰줘서 계산
 (matrix1 + matrix2).eval()
 # array([[ 4.,  5.], dtype=float32)
 
-Rank 달라도 연산가능
+# Rank 달라도 연산가능
 matrix1 = tf.constant([[1., 2.]])
 matrix2 = tf.constant([3., 4.])
 (matrix1 + matrix2).eval()
