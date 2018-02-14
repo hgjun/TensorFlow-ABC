@@ -6,12 +6,12 @@
 도커 터미널 오픈  
 
 ```
-docker pull tensorflow/tensorflow
+docker pull tensorflow/tensorflow:latest-py3
 ```
 
 설치 완료 후 다음 명령 실행
 ```
-sudo docker run -it -p 8888:8888 -p 6006:6006 -v /c/Users/Administrator/Docker/work:/home/testu/work --name tftest tensorflow/tensorflow
+sudo docker run -it -p 8888:8888 -p 6006:6006 -v /c/Users/Jun/Docker/dl_tf/work:/home/testu/work -v /c/Users/Jun/Docker/dl_tf/notebooks_shared:/notebooks/_shared --name tftest tensorflow/tensorflow:latest-py3
 ```
 8888 포트는 Jupyter 용  
 6006 포트는 TensorBoard 용
